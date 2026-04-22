@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tempario Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface2: #1c1c1c;
+  --border: #272727;
+  --accent: #e8c547;
+  --green: #4fc3a1;
+  --red: #e05c5c;
+  --orange: #e8963a;
+  --text: #f0ede8;
+  --muted: #666;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
+
+.topbar {
+  background: var(--surface);
+  border-bottom: 2px solid var(--accent);
+  padding: 0 32px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 800; color: var(--accent); }
+.logo sub { font-size: 10px; color: var(--muted); font-family: 'DM Mono'; font-weight: 400; margin-left: 10px; letter-spacing: 2px; text-transform: uppercase; vertical-align: middle; }
+.badge-admin { background: var(--accent); color: #000; font-size: 10px; font-weight: 600; letter-spacing: 2px; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.btn { font-family: 'DM Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: 5px; border: none; cursor: pointer; letter-spacing: 1px; transition: all 0.15s; }
+.btn-save { background: var(--green); color: #000; font-weight: 600; }
+.btn-save:hover { filter: brightness(1.1); }
+.btn-link { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-link:hover { border-color: var(--accent); color: var(--accent); }
+
+.main { max-width: 940px; margin: 0 auto; padding: 32px 20px 60px; }
+
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+.section-header { padding: 13px 20px; background: var(--surface2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.section-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); background: #e8c54715; padding: 3px 9px; border-radius: 3px; }
+.section-tag.green { color: var(--green); background: #4fc3a115; }
+.section-title { font-size: 13px; color: var(--text); }
+.section-note { font-size: 10px; color: var(--muted); margin-left: auto; }
+
+/* MULTIPLIERS */
+.mult-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+.mult-col { padding: 18px 20px; border-right: 1px solid var(--border); }
+.mult-col:last-child { border-right: none; }
+.mult-subtitle { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.mult-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.mult-label { flex: 1; font-size: 12px; color: var(--text); }
+.mult-input {
+  width: 70px; background: var(--surface2); border: 1px solid var(--border);
+  color: var(--accent); font-family: 'DM Mono', monospace; font-size: 14px;
+  text-align: right; padding: 5px 8px; border-radius: 4px; outline: none; transition: border-color 0.2s;
+}
+.mult-input:focus { border-color: var(--accent); }
+.mult-unit { font-size: 12px; color: var(--muted); }
+
+/* BUFFER */
+.buffer-row { padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+.buffer-desc { flex: 1; font-size: 12px; color: var(--text); line-height: 1.5; }
+.buffer-desc small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; }
+thead th { background: var(--surface2); color: var(--muted); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 9px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th.r { text-align: right; }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #ffffff04; }
+td { padding: 9px 16px; font-size: 12.5px; vertical-align: middle; }
+.tipo-fixed { color: var(--green); font-size: 10px; letter-spacing: 1px; }
+.tipo-var { color: var(--accent); font-size: 10px; letter-spacing: 1px; }
+td.r { text-align: right; }
+.admin-input {
+  width: 64px; background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); font-family: 'DM Mono', monospace; font-size: 12px;
+  text-align: right; padding: 4px 8px; border-radius: 4px; outline: none; transition: border-color 0.2s;
+}
+.admin-input:focus { border-color: var(--accent); }
+.sub-header td { background: #ffffff06; color: var(--muted); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 16px; }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: #000; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; padding: 11px 20px; border-radius: 8px; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* LINK BOX */
+.link-box { display: none; background: var(--surface2); border: 1px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-top: 16px; }
+.link-box.visible { display: block; }
+.link-box p { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+.link-text { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 9px 13px; font-size: 11px; color: var(--accent); word-break: break-all; cursor: pointer; transition: border-color 0.2s; }
+.link-text:hover { border-color: var(--accent); }
+.link-note { font-size: 10px; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">⚙ TEMPARIO <sub>Admin</sub></div>
+  <div class="topbar-actions">
+    <span class="badge-admin">🔒 Admin</span>
+    <button class="btn btn-link" onclick="showLink()">📋 Link Dipendente</button>
+    <button class="btn btn-save" onclick="saveAll()">💾 Salva</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- MOLTIPLICATORI -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-tag">Moltiplicatori</span>
+      <span class="section-title">Coefficienti Globali</span>
+      <span class="section-note">Il dipendente sceglie il livello — questi valori fanno il calcolo</span>
+    </div>
+    <div class="mult-grid">
+      <div class="mult-col">
+        <div class="mult-subtitle">Segmento Auto</div>
+        <div class="mult-row"><span class="mult-label">🚗 Piccola</span><input class="mult-input" id="mSmall" type="number" step="0.1" min="0.1" value="1.0"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🚙 Media</span><input class="mult-input" id="mMed" type="number" step="0.1" min="0.1" value="1.5"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🚐 Grande/SUV</span><input class="mult-input" id="mLarge" type="number" step="0.1" min="0.1" value="2.0"><span class="mult-unit">×</span></div>
+      </div>
+      <div class="mult-col">
+        <div class="mult-subtitle">Livello Sporcizia</div>
+        <div class="mult-row"><span class="mult-label">🟢 Lieve</span><input class="mult-input" id="dLieve" type="number" step="0.1" min="0.1" value="1.0"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🟡 Medio</span><input class="mult-input" id="dMedio" type="number" step="0.1" min="0.1" value="2.0"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🔴 Alto</span><input class="mult-input" id="dAlto" type="number" step="0.1" min="0.1" value="3.5"><span class="mult-unit">×</span></div>
+      </div>
+      <div class="mult-col">
+        <div class="mult-subtitle">Lucidatura Fari (indip.)</div>
+        <div class="mult-row"><span class="mult-label">🟢 Lieve</span><input class="mult-input" id="fLieve" type="number" step="0.1" min="0.1" value="1.0"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🟡 Media</span><input class="mult-input" id="fMedia" type="number" step="0.1" min="0.1" value="1.8"><span class="mult-unit">×</span></div>
+        <div class="mult-row"><span class="mult-label">🔴 Forte</span><input class="mult-input" id="fForte" type="number" step="0.1" min="0.1" value="3.0"><span class="mult-unit">×</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUFFER -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Buffer</span><span class="section-title">Margine di Sicurezza</span></div>
+    <div class="buffer-row">
+      <span class="buffer-desc">Percentuale aggiuntiva applicata al totale finale<small>Copre imprevisti, traffico, attese. Viene aggiunta alla fine di tutti i calcoli.</small></span>
+      <input class="mult-input" id="buffer" type="number" step="1" min="0" value="10" style="width:76px;font-size:18px;">
+      <span style="font-size:14px;color:var(--muted);">%</span>
+    </div>
+  </div>
+
+  <!-- A: FISSI -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag green">A — Fissi</span><span class="section-title">Logistica & Tempi Fissi</span><span class="section-note">Non moltiplicati</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblA"></tbody></table>
+  </div>
+
+  <!-- B: INTERNI -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag">B — Interni</span><span class="section-title">Interni</span><span class="section-note">× Difficoltà × Dimensione</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblB"></tbody></table>
+  </div>
+
+  <!-- C: ESTERNI -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag">C — Esterni</span><span class="section-title">Esterni & Lucidatura</span><span class="section-note">× Difficoltà × Dimensione</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblC"></tbody></table>
+  </div>
+
+  <!-- FARI -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Fari</span><span class="section-title">Lucidatura Fari (coppia)</span><span class="section-note">Moltiplicatore indipendente</span></div>
+    <table><thead><tr><th>Voce</th><th>Moltiplicatore</th><th class="r">Tempo Base (min)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Fari (coppia) — tempo base</td>
+        <td class="tipo-var">× livello fari</td>
+        <td class="r"><input class="admin-input" id="base_fari" type="number" min="0" step="1" value="20"></td>
+      </tr>
+    </tbody></table>
+  </div>
+
+  <!-- D: RUOTE -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag">D — Ruote</span><span class="section-title">Ruote</span><span class="section-note">× Difficoltà (non dimensione)</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblD"></tbody></table>
+  </div>
+
+  <!-- E: RITOCCHI -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag green">E — Ritocchi</span><span class="section-title">Ritocchi Vernice & Trattamenti</span><span class="section-note">Fissi per intervento</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblE"></tbody></table>
+  </div>
+
+  <!-- F: CHIUSURA -->
+  <div class="section">
+    <div class="section-header"><span class="section-tag green">F — Chiusura</span><span class="section-title">Chiusura Lavoro</span><span class="section-note">Fisso</span></div>
+    <table><thead><tr><th>Operazione</th><th>Tipo</th><th class="r">Tempo Base (min)</th></tr></thead><tbody id="tblF"></tbody></table>
+  </div>
+
+  <div class="link-box" id="linkBox">
+    <p>📱 Copia e manda questo link al dipendente via WhatsApp:</p>
+    <div class="link-text" id="linkText" onclick="copyLink()">—</div>
+    <p class="link-note">💡 Clicca per copiare. I parametri salvati vengono letti automaticamente dalla scheda dipendente.</p>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ALL_ROWS = [
+  { cat:'A', id:'checkin',     name:'Valutazione / Check-in',                fixed:true,  base:20 },
+  { cat:'A', id:'setup',       name:'Set-up postazione',                     fixed:true,  base:15 },
+  { cat:'A', id:'lavaggio',    name:'Andata/Ritorno Autolavaggio',           fixed:true,  base:30 },
+  { cat:'A', id:'negozio',     name:'Andata/Ritorno Negozio Vernici',        fixed:true,  base:30 },
+  { cat:'B', id:'sedile',      name:'Sedili',                                fixed:false, base:12 },
+  { cat:'B', id:'moquette',    name:'Tappetini e moquette',                  fixed:false, base:20 },
+  { cat:'B', id:'baule',       name:'Bagagliaio (fondo + bordi)',            fixed:false, base:15 },
+  { cat:'B', id:'plastica',    name:'Plance e plastica interna',             fixed:false, base:10 },
+  { cat:'B', id:'pannello',    name:'Pannelli porta interni',                fixed:false, base:8  },
+  { cat:'B', id:'cielo',       name:'Cielo (interno tetto)',                 fixed:false, base:18 },
+  { cat:'B', id:'vetriint',    name:'Pulizia vetri interni',                 fixed:false, base:10 },
+  { cat:'B', id:'asciugatura', name:'Asciugatura auto (dopo lavaggio)',      fixed:false, base:15 },
+  { cat:'C', id:'vetriext',    name:'Pulizia vetri esterni',                 fixed:false, base:12 },
+  { cat:'C', id:'decontam',    name:'Decontaminazione (prodotto + clay)',    fixed:false, base:35 },
+  { cat:'C', id:'diluente',    name:'Passaggio diluente',                    fixed:false, base:20 },
+  { cat:'C', id:'motore',      name:'Pulizia vano motore',                   fixed:false, base:5  },
+  { cat:'C', id:'luc_cofano',  name:'Cofano (lucidatura)',                   fixed:false, base:30 },
+  { cat:'C', id:'luc_sport',   name:'Sportelli (lucidatura)',                fixed:false, base:25 },
+  { cat:'C', id:'luc_paraurti',name:'Paraurti (lucidatura)',                 fixed:false, base:20 },
+  { cat:'C', id:'luc_parafango',name:'Parafanghi (lucidatura)',              fixed:false, base:15 },
+  { cat:'C', id:'luc_tetto',   name:'Tetto (lucidatura)',                    fixed:false, base:25 },
+  { cat:'D', id:'cerchi',      name:'Cerchi — sporcizia freni incrostata',   fixed:false, base:15 },
+  { cat:'D', id:'coppe',       name:'Verniciatura coppe',                    fixed:false, base:20 },
+  { cat:'D', id:'cerchifero',  name:'Verniciatura cerchi in ferro',          fixed:false, base:30 },
+  { cat:'D', id:'gomme',       name:'Lucidatura gomme',                      fixed:false, base:5  },
+  { cat:'E', id:'kit5',        name:'Ritocco vernice — 1 a 5 punti',        fixed:true,  base:25 },
+  { cat:'E', id:'kit20',       name:'Ritocco vernice — 6 a 20 punti',       fixed:true,  base:50 },
+  { cat:'E', id:'tergi',       name:'Verniciatura spazzole tergicristallo',  fixed:true,  base:10 },
+  { cat:'F', id:'chiusura',    name:'Pulizia postazione + lavaggio stracci', fixed:true,  base:20 },
+];
+
+function renderTable(cat, tbodyId) {
+  const rows = ALL_ROWS.filter(r => r.cat === cat);
+  const tbody = document.getElementById(tbodyId);
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.name}</td>
+      <td class="${r.fixed ? 'tipo-fixed' : 'tipo-var'}">${r.fixed ? 'FISSO' : 'VARIABILE'}</td>
+      <td class="r"><input class="admin-input" id="base_${r.id}" type="number" min="0" step="1" value="${r.base}"></td>`;
+    tbody.appendChild(tr);
+  });
+}
+['A','B','C','D','E','F'].forEach(c => renderTable(c, 'tbl'+c));
+
+function loadConfig() {
+  try {
+    const saved = localStorage.getItem('tempario_config');
+    if (!saved) return;
+    const c = JSON.parse(saved);
+    ['mSmall','mMed','mLarge','dLieve','dMedio','dAlto','fLieve','fMedia','fForte','buffer'].forEach(k => {
+      if (c[k] !== undefined && document.getElementById(k)) document.getElementById(k).value = c[k];
+    });
+    if (c.bases) Object.entries(c.bases).forEach(([id, val]) => {
+      const el = document.getElementById('base_' + id);
+      if (el) el.value = val;
+    });
+  } catch(e) {}
+}
+
+function saveAll() {
+  const bases = {};
+  ALL_ROWS.forEach(r => {
+    const el = document.getElementById('base_' + r.id);
+    if (el) bases[r.id] = parseFloat(el.value) || 0;
+  });
+  // also fari
+  const fEl = document.getElementById('base_fari');
+  if (fEl) bases['fari'] = parseFloat(fEl.value) || 20;
+
+  const cfg = {
+    mSmall: document.getElementById('mSmall').value,
+    mMed:   document.getElementById('mMed').value,
+    mLarge: document.getElementById('mLarge').value,
+    dLieve: document.getElementById('dLieve').value,
+    dMedio: document.getElementById('dMedio').value,
+    dAlto:  document.getElementById('dAlto').value,
+    fLieve: document.getElementById('fLieve').value,
+    fMedia: document.getElementById('fMedia').value,
+    fForte: document.getElementById('fForte').value,
+    buffer: document.getElementById('buffer').value,
+    bases
+  };
+  localStorage.setItem('tempario_config', JSON.stringify(cfg));
+  showToast('✓ Configurazione salvata!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+function showLink() {
+  saveAll();
+  const url = window.location.href.replace('tempario-admin.html','tempario-dipendente.html');
+  document.getElementById('linkText').textContent = url;
+  const box = document.getElementById('linkBox');
+  box.classList.add('visible');
+  box.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(document.getElementById('linkText').textContent)
+    .then(() => showToast('✓ Link copiato!'));
+}
+
+loadConfig();
+</script>
+</body>
+</html>
