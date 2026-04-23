@@ -17,21 +17,21 @@
   --red: #b83232;
   --orange: #c07000;
   --text: #1a1a1a;
-  --muted: #888;
+  --muted: #999;
   --wa: #25D366;
   --error: #c0392b;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; padding-bottom: 160px; }
 
-.topbar { background: #1a1a1a; padding: 0 20px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-.logo { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; color: #e8c547; }
+.topbar { background: #1a1a1a; padding: 0 20px; height: 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: #e8c547; }
 .logo sub { font-size: 10px; color: #555; font-family: 'DM Mono'; font-weight: 400; margin-left: 8px; letter-spacing: 2px; text-transform: uppercase; vertical-align: middle; }
 .badge { background: #2a2a2a; color: #777; font-size: 10px; letter-spacing: 2px; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
 
-.content { max-width: 540px; margin: 0 auto; padding: 20px 14px; }
+.content { max-width: 560px; margin: 0 auto; padding: 20px 14px; }
 
-/* REQUIRED BADGE */
+/* REQUIRED */
 .req { color: var(--error); font-size: 11px; margin-left: 6px; }
 .card.has-error { border-color: var(--error) !important; }
 .error-msg { font-size: 11px; color: var(--error); margin-top: 6px; display: none; }
@@ -39,148 +39,138 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 
 /* CARD */
 .card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 1px 6px #00000008; transition: border-color 0.2s; }
-.card-header { padding: 12px 16px; background: var(--surface2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-.card-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); background: #b8941f18; padding: 3px 8px; border-radius: 3px; }
-.card-title { font-size: 13px; color: var(--text); font-weight: 500; }
-.card-body { padding: 16px; }
+.card-header { padding: 13px 18px; background: var(--surface2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.card-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); background: #b8941f18; padding: 3px 9px; border-radius: 3px; }
+.card-title { font-size: 14px; color: var(--text); font-weight: 600; }
+.card-body { padding: 18px; }
 
 /* TARGA */
-.targa-input { width: 100%; background: var(--surface2); border: 2px solid var(--border); color: var(--text); font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; letter-spacing: 6px; text-transform: uppercase; text-align: center; padding: 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; }
+.targa-input { width: 100%; background: var(--surface2); border: 2px solid var(--border); color: var(--text); font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 6px; text-transform: uppercase; text-align: center; padding: 15px; border-radius: 8px; outline: none; transition: border-color 0.2s; }
 .targa-input:focus { border-color: var(--accent); }
 .targa-input.error { border-color: var(--error); }
 
-/* DIFFICOLTÀ — 4 livelli (griglia 2×2) */
-.diff-grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.diff-btn {
-  padding: 12px 8px 10px;
-  background: var(--surface2);
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.15s;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.diff-btn .icon { display: block; font-size: 20px; margin-bottom: 3px; }
-.diff-btn .label { font-weight: 600; font-size: 12px; color: var(--text); display: block; }
-.diff-btn .examples { display: block; font-size: 9.5px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
-.diff-btn.active-nulla  { border-color: var(--blue);   background: #2471a312; }
-.diff-btn.active-nulla .label  { color: var(--blue); }
-.diff-btn.active-lieve  { border-color: var(--green);  background: #27916a12; }
-.diff-btn.active-lieve .label  { color: var(--green); }
-.diff-btn.active-medio  { border-color: var(--orange); background: #c0700012; }
-.diff-btn.active-medio .label  { color: var(--orange); }
-.diff-btn.active-alto   { border-color: var(--red);    background: #b8323212; }
-.diff-btn.active-alto .label   { color: var(--red); }
+/* DIFF 4 livelli */
+.diff-grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.diff-btn { padding: 13px 8px 11px; background: var(--surface2); border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Mono', monospace; font-size: 11.5px; cursor: pointer; text-align: center; transition: all 0.15s; color: var(--muted); line-height: 1.4; }
+.diff-btn .icon { display: block; font-size: 22px; margin-bottom: 4px; }
+.diff-btn .label { font-weight: 700; font-size: 13px; color: var(--text); display: block; }
+.diff-btn .examples { display: block; font-size: 10px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+.diff-btn.active-nulla { border-color: var(--blue); background: #2471a312; }
+.diff-btn.active-nulla .label { color: var(--blue); }
+.diff-btn.active-lieve { border-color: var(--green); background: #27916a12; }
+.diff-btn.active-lieve .label { color: var(--green); }
+.diff-btn.active-medio { border-color: var(--orange); background: #c0700012; }
+.diff-btn.active-medio .label { color: var(--orange); }
+.diff-btn.active-alto { border-color: var(--red); background: #b8323212; }
+.diff-btn.active-alto .label { color: var(--red); }
 .diff-btn.error-outline { border-color: var(--error) !important; }
 
 /* SEGMENTO */
-.seg-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-.seg-btn { padding: 14px 6px 12px; background: var(--surface2); border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Mono', monospace; font-size: 11px; cursor: pointer; text-align: center; transition: all 0.15s; color: var(--muted); line-height: 1.5; }
-.seg-btn .icon { display: block; font-size: 26px; margin-bottom: 4px; }
+.seg-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+.seg-btn { padding: 15px 6px 13px; background: var(--surface2); border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Mono', monospace; font-size: 12px; cursor: pointer; text-align: center; transition: all 0.15s; color: var(--muted); line-height: 1.5; }
+.seg-btn .icon { display: block; font-size: 28px; margin-bottom: 5px; }
 .seg-btn .mult { display: block; font-size: 10px; color: var(--muted); margin-top: 2px; }
 .seg-btn.active { border-color: var(--accent); background: #b8941f14; color: var(--text); }
-.seg-btn.active .mult { color: var(--accent); font-weight: 500; }
+.seg-btn.active .mult { color: var(--accent); font-weight: 600; }
 
 /* OP ROWS */
-.op-row { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 0; padding: 10px 0; border-bottom: 1px solid var(--border); min-height: 46px; }
+.op-row { display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 0; padding: 11px 0; border-bottom: 1px solid var(--border); min-height: 48px; }
 .op-row:last-child { border-bottom: none; }
 .toggle-wrap { display: flex; align-items: center; justify-content: center; }
-.toggle { position: relative; width: 36px; height: 20px; cursor: pointer; }
+.toggle { position: relative; width: 38px; height: 22px; cursor: pointer; }
 .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
-.slider { position: absolute; top:0; left:0; right:0; bottom:0; background:#ccc; border-radius:20px; transition:.2s; }
-.slider:before { content:''; position:absolute; width:14px; height:14px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.2s; box-shadow:0 1px 3px #0002; }
+.slider { position: absolute; top:0; left:0; right:0; bottom:0; background:#ccc; border-radius:22px; transition:.2s; }
+.slider:before { content:''; position:absolute; width:16px; height:16px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.2s; box-shadow:0 1px 3px #0002; }
 .toggle input:checked + .slider { background: var(--green); }
 .toggle input:checked + .slider:before { transform: translateX(16px); }
-.op-name { font-size: 12.5px; color: var(--text); padding: 0 6px; line-height: 1.4; }
-.op-name.off { color: var(--muted); text-decoration: line-through; }
-.qty-wrap { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-.qty-btn { width: 28px; height: 28px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 17px; display: flex; align-items: center; justify-content: center; color: var(--text); transition: all 0.1s; user-select: none; -webkit-user-select: none; }
+.op-name { font-size: 13.5px; color: var(--text); padding: 0 8px; line-height: 1.4; }
+.op-name.off { color: var(--muted); }
+.qty-wrap { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.qty-btn { width: 30px; height: 30px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; color: var(--text); transition: all 0.1s; user-select: none; -webkit-user-select: none; }
 .qty-btn:active { background: var(--border); }
-.qty-val { min-width: 22px; text-align: center; font-size: 13px; font-weight: 500; }
+.qty-val { min-width: 28px; text-align: center; font-size: 14px; font-weight: 600; }
 .qty-fixed { min-width: 22px; text-align: center; font-size: 11px; color: var(--muted); padding: 0 4px; }
 
-.op-section-title { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: 10px 0 4px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
+.op-section-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: 12px 0 5px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
 
-/* DECONTAMINAZIONE */
-.decontam-row { display: grid; grid-template-columns: 44px 1fr; align-items: center; padding: 10px 0 6px; border-bottom: 1px solid var(--border); }
+/* 3-level selector (fari, cerchi, decontam) */
+.level-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin-top: 7px; }
+.level-btn { padding: 9px 5px; border: 2px solid var(--border); border-radius: 8px; background: var(--surface2); font-family: 'DM Mono', monospace; font-size: 11px; cursor: pointer; text-align: center; color: var(--muted); transition: all 0.15s; line-height: 1.6; }
+.level-btn .lbl { display: block; font-weight: 600; font-size: 12px; }
+.level-btn .desc { display: block; font-size: 9.5px; margin-top: 3px; line-height: 1.4; }
+.level-btn.active-lieve { border-color: var(--green); background: #27916a12; color: var(--green); }
+.level-btn.active-medio { border-color: var(--orange); background: #c0700012; color: var(--orange); }
+.level-btn.active-forte { border-color: var(--red); background: #b8323212; color: var(--red); }
+
+/* DECONTAM */
+.decontam-row { display: grid; grid-template-columns: 48px 1fr; align-items: center; padding: 11px 0 7px; border-bottom: 1px solid var(--border); }
 .decontam-detail { padding: 10px 0 12px; }
 .decontam-pezzi { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-.decontam-pezzi-label { font-size: 12px; color: var(--muted); flex: 1; }
+.decontam-pezzi-label { font-size: 13px; color: var(--muted); flex: 1; }
 
-/* DIFF 3-grid inside decontam */
-.diff-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
-
-/* FARI */
-.fari-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 6px; }
-.fari-btn { padding: 8px 4px; border: 2px solid var(--border); border-radius: 7px; background: var(--surface2); font-family: 'DM Mono', monospace; font-size: 11px; cursor: pointer; text-align: center; color: var(--muted); transition: all 0.15s; line-height: 1.5; }
-.fari-btn.active-lieve { border-color: var(--green); background: #27916a12; color: var(--green); font-weight: 500; }
-.fari-btn.active-media { border-color: var(--orange); background: #c0700012; color: var(--orange); font-weight: 500; }
-.fari-btn.active-forte { border-color: var(--red); background: #b8323212; color: var(--red); font-weight: 500; }
+/* CERCHI IN LEGA */
+.cerchi-row { display: grid; grid-template-columns: 48px 1fr; align-items: center; padding: 11px 0 7px; border-bottom: 1px solid var(--border); }
+.cerchi-detail { padding: 10px 0 12px; }
+.cerchi-qty-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 
 /* RITOCCHI */
 .ritocchi-wrap { display: flex; align-items: center; gap: 12px; }
-.ritocchi-label { font-size: 12.5px; color: var(--text); flex: 1; }
-.ritocchi-input { width: 80px; background: var(--surface2); border: 2px solid var(--border); color: var(--text); font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-align: center; padding: 6px 8px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
+.ritocchi-label { font-size: 13.5px; color: var(--text); flex: 1; }
+.ritocchi-input { width: 90px; background: var(--surface2); border: 2px solid var(--border); color: var(--text); font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700; text-align: center; padding: 7px 8px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
 .ritocchi-input:focus { border-color: var(--accent); }
-.ritocchi-note { font-size: 11px; color: var(--muted); margin-top: 8px; }
 
 /* EXTRA */
 .extra-wrap { display: flex; flex-direction: column; gap: 10px; }
-.extra-desc-input { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; padding: 10px 12px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
+.extra-desc-input { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; padding: 11px 13px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
 .extra-desc-input:focus { border-color: var(--accent); }
+.extra-desc-input.error { border-color: var(--error); }
 .extra-min-row { display: flex; align-items: center; gap: 10px; }
-.extra-min-label { font-size: 12px; color: var(--muted); flex: 1; }
-.extra-min-input { width: 80px; background: var(--surface2); border: 2px solid var(--border); color: var(--accent); font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; text-align: center; padding: 6px 8px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
+.extra-min-label { font-size: 13px; color: var(--muted); flex: 1; }
+.extra-min-input { width: 90px; background: var(--surface2); border: 2px solid var(--border); color: var(--accent); font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-align: center; padding: 7px 8px; border-radius: 7px; outline: none; transition: border-color 0.2s; }
 .extra-min-input:focus { border-color: var(--accent); }
-.extra-unit { font-size: 12px; color: var(--muted); }
+.extra-min-input.error { border-color: var(--error); }
+.extra-unit { font-size: 13px; color: var(--muted); }
 
-/* NOTE OBBLIGATORIE */
-.note-textarea { width: 100%; height: 90px; background: var(--surface2); border: 2px solid var(--border); border-radius: 8px; padding: 11px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); resize: none; outline: none; transition: border-color 0.2s; }
+/* NOTE */
+.note-textarea { width: 100%; height: 90px; background: var(--surface2); border: 2px solid var(--border); border-radius: 8px; padding: 12px; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); resize: none; outline: none; transition: border-color 0.2s; }
 .note-textarea:focus { border-color: var(--accent); }
-.note-textarea.error { border-color: var(--error); }
 
-/* ORARIO CARD */
-.orario-card { background: #1a1a1a; border: 2px solid #333; border-radius: 12px; margin-bottom: 14px; overflow: hidden; transition: border-color 0.2s; }
-.orario-card.error-border { border-color: var(--error) !important; }
-.orario-header { padding: 12px 16px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 10px; }
-.orario-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #e8c547; background: #e8c54715; padding: 3px 8px; border-radius: 3px; }
-.orario-title { font-size: 13px; color: #ccc; }
-.orario-body { padding: 16px; }
-.ora-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.ora-label { font-size: 12px; color: #666; }
-.ora-input { background: #2a2a2a; border: 2px solid #333; color: #e8c547; font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; padding: 8px 12px; border-radius: 7px; outline: none; width: 120px; transition: border-color 0.2s; }
+/* ORARIO */
+.orario-card { background: #1a1a1a; border: 2px solid #333; border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+.orario-header { padding: 13px 18px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 10px; }
+.orario-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #e8c547; background: #e8c54715; padding: 3px 9px; border-radius: 3px; }
+.orario-title { font-size: 14px; color: #ccc; font-weight: 600; }
+.orario-body { padding: 18px; }
+.ora-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.ora-label { font-size: 13px; color: #666; }
+.ora-input { background: #2a2a2a; border: 2px solid #333; color: #e8c547; font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; padding: 9px 13px; border-radius: 7px; outline: none; width: 130px; transition: border-color 0.2s; }
 .ora-input:focus { border-color: #e8c547; }
 .ora-input.error { border-color: var(--error); }
-.riepilogo-box { background: #111; border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.riepilogo-box { background: #111; border-radius: 10px; padding: 15px 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 .riep-block { text-align: center; }
-.riep-val { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; line-height: 1.1; }
+.riep-val { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; line-height: 1.1; }
 .riep-val.start { color: #666; }
 .riep-val.end { color: #e8c547; }
 .riep-val.dur { color: #4fc3a1; }
 .riep-lbl { font-size: 9px; color: #444; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
 
 /* STICKY BOTTOM */
-.sticky-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 2px solid var(--border); padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 200; box-shadow: 0 -4px 20px #0000001a; }
+.sticky-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 2px solid var(--border); padding: 11px 18px; display: flex; align-items: center; gap: 12px; z-index: 200; box-shadow: 0 -4px 20px #0000001a; }
 .total-block { flex: 1; min-width: 0; }
 .total-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-.total-val { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; color: var(--text); line-height: 1.1; }
+.total-val { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: var(--text); line-height: 1.1; }
 .total-sub { font-size: 10px; color: var(--muted); }
-.btn-invia { background: var(--wa); color: white; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; padding: 11px 18px; border-radius: 10px; border: none; cursor: pointer; display: flex; align-items: center; gap: 7px; white-space: nowrap; flex-shrink: 0; transition: filter 0.15s; }
+.btn-invia { background: var(--wa); color: white; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; padding: 12px 20px; border-radius: 10px; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap; flex-shrink: 0; transition: filter 0.15s; }
 .btn-invia:active { filter: brightness(0.9); }
 
 /* OVERLAY */
 .overlay { display:none; position:fixed; inset:0; background:#000b; z-index:999; align-items:center; justify-content:center; }
 .overlay.show { display:flex; }
 .overlay-box { background: var(--surface); border-radius: 14px; padding: 28px 32px; text-align: center; max-width: 290px; width: 90%; }
-.overlay-icon { font-size: 40px; margin-bottom: 12px; }
-.overlay-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; margin-bottom: 6px; }
-.overlay-sub { font-size: 11px; color: var(--muted); }
+.overlay-icon { font-size: 42px; margin-bottom: 12px; }
+.overlay-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.overlay-sub { font-size: 12px; color: var(--muted); }
 
-/* SHAKE animation for validation */
 @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)} }
 .shake { animation: shake 0.35s ease; }
 </style>
@@ -194,12 +184,9 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 
 <div class="content">
 
-  <!-- 1. TARGA — OBBLIGATORIO -->
+  <!-- TARGA -->
   <div class="card" id="cardTarga">
-    <div class="card-header">
-      <span class="card-tag">Veicolo</span>
-      <span class="card-title">Targa <span class="req">* obbligatorio</span></span>
-    </div>
+    <div class="card-header"><span class="card-tag">Veicolo</span><span class="card-title">Targa <span class="req">* obbligatorio</span></span></div>
     <div class="card-body">
       <input class="targa-input" id="targa" type="text" placeholder="AB 123 CD" maxlength="10"
         oninput="this.value=this.value.toUpperCase(); clearError('cardTarga','targa'); recalc()">
@@ -207,7 +194,13 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
     </div>
   </div>
 
-  <!-- 2. SEGMENTO -->
+  <!-- LOGISTICA -->
+  <div class="card">
+    <div class="card-header"><span class="card-tag">Logistica</span><span class="card-title">Spostamenti</span></div>
+    <div class="card-body" id="opLogistica"></div>
+  </div>
+
+  <!-- SEGMENTO -->
   <div class="card">
     <div class="card-header"><span class="card-tag">Dimensione</span><span class="card-title">Tipo di Auto</span></div>
     <div class="card-body">
@@ -219,32 +212,25 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
     </div>
   </div>
 
-  <!-- 3. SPORCIZIA — OBBLIGATORIO, 4 livelli -->
+  <!-- SPORCIZIA -->
   <div class="card" id="cardSporcizia">
-    <div class="card-header">
-      <span class="card-tag">Sporcizia</span>
-      <span class="card-title">Quanto è sporca l'auto? <span class="req">* obbligatorio</span></span>
-    </div>
+    <div class="card-header"><span class="card-tag">Sporcizia</span><span class="card-title">Quanto è sporca l'auto? <span class="req">* obbligatorio</span></span></div>
     <div class="card-body">
       <div class="diff-grid4" id="diffGrid">
         <button class="diff-btn" data-diff="nulla" onclick="setDiff(this)">
-          <span class="icon">✨</span>
-          <span class="label">Quasi nulla</span>
+          <span class="icon">✨</span><span class="label">Quasi nulla</span>
           <span class="examples">Solo passaggio pezze<br>Auto praticamente pulita</span>
         </button>
         <button class="diff-btn" data-diff="lieve" onclick="setDiff(this)">
-          <span class="icon">🟢</span>
-          <span class="label">Lieve</span>
+          <span class="icon">🟢</span><span class="label">Lieve</span>
           <span class="examples">Polvere leggera<br>Macchie lievi<br>Normale uso</span>
         </button>
         <button class="diff-btn" data-diff="medio" onclick="setDiff(this)">
-          <span class="icon">🟡</span>
-          <span class="label">Medio</span>
+          <span class="icon">🟡</span><span class="label">Medio</span>
           <span class="examples">Molto sporca<br>Fango / terra<br>Interni trascurati</span>
         </button>
         <button class="diff-btn" data-diff="alto" onclick="setDiff(this)">
-          <span class="icon">🔴</span>
-          <span class="label">Alto</span>
+          <span class="icon">🔴</span><span class="label">Alto</span>
           <span class="examples">Peli animali<br>Ossidazione forte<br>Sporco incrostato</span>
         </button>
       </div>
@@ -252,13 +238,13 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
     </div>
   </div>
 
-  <!-- 4. INTERNI — default selezionati: sedili, moquette, baule, plastica, pannello -->
+  <!-- B: INTERNI -->
   <div class="card">
     <div class="card-header"><span class="card-tag">B</span><span class="card-title">Interni</span></div>
     <div class="card-body" id="opB"></div>
   </div>
 
-  <!-- 5. ESTERNI -->
+  <!-- C: ESTERNI -->
   <div class="card">
     <div class="card-header"><span class="card-tag">C</span><span class="card-title">Esterni</span></div>
     <div class="card-body">
@@ -268,126 +254,154 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
       <!-- DECONTAMINAZIONE -->
       <div class="decontam-row">
         <div class="toggle-wrap">
-          <label class="toggle">
-            <input type="checkbox" id="decontamActive" onchange="toggleDecontam(this.checked); recalc()">
-            <span class="slider"></span>
-          </label>
+          <label class="toggle"><input type="checkbox" id="decontamActive" onchange="toggleDecontam(this.checked); recalc()"><span class="slider"></span></label>
         </div>
         <span class="op-name off" id="decontamLabel">Decontaminazione (prodotto + clay)</span>
       </div>
       <div class="decontam-detail" id="decontamDetail" style="opacity:.35;pointer-events:none;">
-        <div class="decontam-pezzi">
-          <span class="decontam-pezzi-label">Numero pezzi:</span>
+        <div class="decontam-pezzi" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;">
+          <span class="decontam-pezzi-label" style="color:var(--text);font-size:13px;font-weight:600;">Numero pezzi:</span>
           <div class="qty-wrap">
             <button class="qty-btn" onclick="chQty('decontam',-1)">−</button>
-            <span class="qty-val" id="qty_decontam">4</span>
+            <span class="qty-val" id="qty_decontam" style="min-width:36px;font-size:18px;font-weight:700;color:var(--accent);">0</span>
             <button class="qty-btn" onclick="chQty('decontam',1)">+</button>
           </div>
         </div>
-        <div class="diff-grid3">
-          <button class="diff-btn" data-dd="lieve" onclick="setDecontamDiff(this)">
-            <span class="icon">🟢</span><span class="label">Lieve</span>
-            <span class="examples">Polvere fine<br>Poca resina</span>
-          </button>
-          <button class="diff-btn active-medio" data-dd="medio" onclick="setDecontamDiff(this)">
-            <span class="icon">🟡</span><span class="label">Medio</span>
-            <span class="examples">Ruggine leggera<br>Residui strada</span>
-          </button>
-          <button class="diff-btn" data-dd="alto" onclick="setDecontamDiff(this)">
-            <span class="icon">🔴</span><span class="label">Alto</span>
-            <span class="examples">Ossidazione<br>Molto incrostato</span>
-          </button>
+        <div class="level-selector">
+          <button class="level-btn" data-dd="lieve" onclick="setDecontamDiff(this)">🟢<span class="lbl">Lieve</span><span class="desc">Polvere fine<br>Poca resina</span></button>
+          <button class="level-btn active-medio" data-dd="medio" onclick="setDecontamDiff(this)">🟡<span class="lbl">Medio</span><span class="desc">Ruggine leggera<br>Residui strada</span></button>
+          <button class="level-btn" data-dd="alto" onclick="setDecontamDiff(this)">🔴<span class="lbl">Alto</span><span class="desc">Ossidazione<br>Molto incrostato</span></button>
         </div>
       </div>
 
-      <div class="op-section-title" style="margin-top:8px;">Lucidatura — Pezzi</div>
-      <!-- LIVELLO LUCIDATURA — indipendente dalla sporcizia -->
+      <div class="op-section-title" style="margin-top:10px;">Lucidatura — Livello</div>
       <div style="margin-bottom:10px;">
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Livello lucidatura pezzi:</div>
-        <div class="diff-grid3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
-          <button class="diff-btn" data-luc="lieve" onclick="setLuc(this)"><span class="icon">🟢</span><span class="label">Lieve</span><span class="examples">Pochi graffi<br>Buono stato</span></button>
-          <button class="diff-btn active-medio" data-luc="media" onclick="setLuc(this)"><span class="icon">🟡</span><span class="label">Media</span><span class="examples">Graffi visibili<br>Swirl diffusi</span></button>
-          <button class="diff-btn" data-luc="forte" onclick="setLuc(this)"><span class="icon">🔴</span><span class="label">Forte</span><span class="examples">Ossidazione<br>Graffi profondi</span></button>
+        <div class="level-selector">
+          <button class="level-btn" data-luc="lieve" onclick="setLuc(this)">🟢<span class="lbl">Lieve</span><span class="desc">Pochi graffi<br>Buono stato</span></button>
+          <button class="level-btn active-medio" data-luc="media" onclick="setLuc(this)">🟡<span class="lbl">Media</span><span class="desc">Graffi visibili<br>Swirl diffusi</span></button>
+          <button class="level-btn" data-luc="forte" onclick="setLuc(this)">🔴<span class="lbl">Forte</span><span class="desc">Ossidazione<br>Graffi profondi</span></button>
         </div>
       </div>
+      <div class="op-section-title">Lucidatura — Pezzi</div>
       <div id="opC_luc"></div>
       <div id="opC_tetto"></div>
+
+      <div class="op-section-title" style="margin-top:10px;">Verniciatura</div>
+      <div id="opC_vern"></div>
     </div>
   </div>
 
-  <!-- 6. FARI -->
+  <!-- FARI -->
   <div class="card">
     <div class="card-header"><span class="card-tag">Fari</span><span class="card-title">Lucidatura Fari (coppia)</span></div>
     <div class="card-body">
-      <div class="op-row" style="grid-template-columns:44px 1fr;">
-        <div class="toggle-wrap">
-          <label class="toggle">
-            <input type="checkbox" id="fariActive" onchange="recalc()">
-            <span class="slider"></span>
-          </label>
-        </div>
+      <div class="op-row" style="grid-template-columns:48px 1fr;">
+        <div class="toggle-wrap"><label class="toggle"><input type="checkbox" id="fariActive" onchange="toggleFari(this.checked); recalc()"><span class="slider"></span></label></div>
         <span class="op-name off" id="fariLabel">Fari (coppia)</span>
       </div>
-      <div class="fari-selector" id="fariSelector" style="opacity:.35;pointer-events:none;">
-        <button class="fari-btn" data-fl="lieve" onclick="setFari(this)">🟢 Lieve<br><span style="font-size:9px;">Piccoli aloni</span></button>
-        <button class="fari-btn active-media" data-fl="media" onclick="setFari(this)">🟡 Media<br><span style="font-size:9px;">Opacità visibile</span></button>
-        <button class="fari-btn" data-fl="forte" onclick="setFari(this)">🔴 Forte<br><span style="font-size:9px;">Gialli / opachi</span></button>
+      <div class="level-selector" id="fariSelector" style="opacity:.35;pointer-events:none;margin-top:8px;">
+        <button class="level-btn" data-fl="lieve" onclick="setFari(this)">🟢<span class="lbl">Lieve</span><span class="desc">Piccoli aloni</span></button>
+        <button class="level-btn active-medio" data-fl="media" onclick="setFari(this)">🟡<span class="lbl">Media</span><span class="desc">Opacità visibile</span></button>
+        <button class="level-btn" data-fl="forte" onclick="setFari(this)">🔴<span class="lbl">Forte</span><span class="desc">Gialli / opachi</span></button>
       </div>
     </div>
   </div>
 
-  <!-- 7. RUOTE -->
+  <!-- D: RUOTE -->
   <div class="card">
     <div class="card-header"><span class="card-tag">D</span><span class="card-title">Ruote</span></div>
-    <div class="card-body" id="opD"></div>
+    <div class="card-body">
+      <!-- CERCHI IN LEGA -->
+      <div class="op-section-title">Cerchi in Lega</div>
+      <div class="cerchi-row">
+        <div class="toggle-wrap"><label class="toggle"><input type="checkbox" id="cerchiActive" onchange="toggleCerchi(this.checked); recalc()"><span class="slider"></span></label></div>
+        <span class="op-name off" id="cerchiLabel">Cerchi in lega</span>
+      </div>
+      <div class="cerchi-detail" id="cerchiDetail" style="opacity:.35;pointer-events:none;">
+        <div class="cerchi-qty-row" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;">
+          <span class="decontam-pezzi-label" style="color:var(--text);font-size:13px;font-weight:600;">Numero cerchi:</span>
+          <div class="qty-wrap">
+            <button class="qty-btn" onclick="chQty('cerchi_lega',-1)">−</button>
+            <span class="qty-val" id="qty_cerchi_lega" style="min-width:36px;font-size:18px;font-weight:700;color:var(--accent);">0</span>
+            <button class="qty-btn" onclick="chQty('cerchi_lega',1)">+</button>
+          </div>
+        </div>
+        <div class="level-selector">
+          <button class="level-btn" data-cl="lieve" onclick="setCerchiLevel(this)">🟢<span class="lbl">Lieve</span><span class="desc">Passaggio<br>diluente</span></button>
+          <button class="level-btn active-medio" data-cl="medio" onclick="setCerchiLevel(this)">🟡<span class="lbl">Medio</span><span class="desc">Poco ferodo<br>+ diluente</span></button>
+          <button class="level-btn" data-cl="forte" onclick="setCerchiLevel(this)">🔴<span class="lbl">Forte</span><span class="desc">Decontam.<br>+ diluente</span></button>
+        </div>
+      </div>
+
+      <div class="op-section-title" style="margin-top:10px;">Cerchi in Ferro & Pneumatici</div>
+      <div id="opD"></div>
+    </div>
   </div>
 
-  <!-- 8. RITOCCHI -->
+  <!-- E: RITOCCHI VERNICE -->
   <div class="card">
     <div class="card-header"><span class="card-tag">E</span><span class="card-title">Ritocchi Vernice</span></div>
     <div class="card-body">
       <div class="ritocchi-wrap">
-        <span class="ritocchi-label">Numero ritocchi:</span>
+        <span class="ritocchi-label">Numero ritocchi vernice:</span>
         <input class="ritocchi-input" id="ritocchiNum" type="number" min="0" max="999" value="0" oninput="recalc()">
       </div>
-      <div class="ritocchi-note" id="ritocchiNote">Inserisci 0 se non ci sono ritocchi</div>
+      <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:12px;">
+        <div class="op-row" style="grid-template-columns:48px 1fr;border-bottom:none;padding:0;">
+          <div class="toggle-wrap"><label class="toggle"><input type="checkbox" id="negozioActive" onchange="toggleNegozio(this.checked); recalc()"><span class="slider"></span></label></div>
+          <span class="op-name off" id="negozioLabel">Vernice da fare</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 9. TRATTAMENTI & CHIUSURA -->
+  <!-- F: TRATTAMENTI & CHIUSURA -->
   <div class="card">
     <div class="card-header"><span class="card-tag">F</span><span class="card-title">Trattamenti & Chiusura</span></div>
     <div class="card-body" id="opF"></div>
   </div>
 
-  <!-- 10. EXTRA — campo libero con minuti aggiuntivi -->
+  <!-- EXTRA 1 -->
   <div class="card" id="cardExtra">
-    <div class="card-header"><span class="card-tag">Extra</span><span class="card-title">Lavorazione Aggiuntiva</span></div>
+    <div class="card-header"><span class="card-tag">Extra 1</span><span class="card-title">Lavorazione Aggiuntiva</span></div>
     <div class="card-body">
       <div class="extra-wrap">
-        <input class="extra-desc-input" id="extraDesc" type="text" placeholder="Descrivi la lavorazione extra (es. rimozione adesivi, trattamento sedili...)" oninput="validateExtra(); recalc()">
+        <input class="extra-desc-input" id="extraDesc" type="text" placeholder="Descrivi la lavorazione extra..." oninput="validateExtra('extra'); recalc()">
         <div class="extra-min-row">
-          <span class="extra-min-label">Minuti aggiuntivi: <span class="req" id="extraMinReq" style="display:none;">* obbligatorio se descrizione presente</span></span>
-          <input class="extra-min-input" id="extraMin" type="number" min="0" max="999" value="0" oninput="validateExtra(); recalc()">
+          <span class="extra-min-label">Minuti aggiuntivi:</span>
+          <input class="extra-min-input" id="extraMin" type="number" min="0" max="999" value="0" oninput="validateExtra('extra'); recalc()">
           <span class="extra-unit">min</span>
         </div>
-        <div class="error-msg" id="errExtra">⚠ Se inserisci una lavorazione extra devi specificare anche i minuti (e viceversa)</div>
+        <div class="error-msg" id="errExtra">⚠ Inserisci sia descrizione che minuti</div>
       </div>
     </div>
   </div>
 
-  <!-- 11. NOTE — opzionali -->
-  <div class="card" id="cardNote">
-    <div class="card-header">
-      <span class="card-tag">Note</span>
-      <span class="card-title">Note sul veicolo <span style="font-size:11px;color:var(--muted);margin-left:4px;">opzionale</span></span>
+  <!-- EXTRA 2 -->
+  <div class="card" id="cardExtra2">
+    <div class="card-header"><span class="card-tag">Extra 2</span><span class="card-title">Lavorazione Aggiuntiva</span></div>
+    <div class="card-body">
+      <div class="extra-wrap">
+        <input class="extra-desc-input" id="extraDesc2" type="text" placeholder="Descrivi la lavorazione extra..." oninput="validateExtra('extra2'); recalc()">
+        <div class="extra-min-row">
+          <span class="extra-min-label">Minuti aggiuntivi:</span>
+          <input class="extra-min-input" id="extraMin2" type="number" min="0" max="999" value="0" oninput="validateExtra('extra2'); recalc()">
+          <span class="extra-unit">min</span>
+        </div>
+        <div class="error-msg" id="errExtra2">⚠ Inserisci sia descrizione che minuti</div>
+      </div>
     </div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="card">
+    <div class="card-header"><span class="card-tag">Note</span><span class="card-title">Note sul veicolo <span style="font-size:11px;color:var(--muted);margin-left:4px;">opzionale</span></span></div>
     <div class="card-body">
       <textarea class="note-textarea" id="note" placeholder="Danni visibili, anomalie, richieste speciali..."></textarea>
     </div>
   </div>
 
-  <!-- 12. ORA INIZIO → RIEPILOGO — OBBLIGATORIO -->
+  <!-- ORA INIZIO -->
   <div class="orario-card" id="cardOrario">
     <div class="orario-header">
       <span class="orario-tag">⏰ Ultimo step</span>
@@ -396,22 +410,12 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
     <div class="orario-body">
       <div class="ora-row">
         <span class="ora-label">Ora inizio lavoro:</span>
-        <input class="ora-input" type="time" id="oraInizio" placeholder="--:--"
-          oninput="clearError('cardOrario','oraInizio'); recalc()">
+        <input class="ora-input" type="time" id="oraInizio" oninput="clearError('cardOrario','oraInizio'); recalc()">
       </div>
       <div class="riepilogo-box">
-        <div class="riep-block">
-          <div class="riep-val start" id="dispStart">--:--</div>
-          <div class="riep-lbl">Inizio</div>
-        </div>
-        <div class="riep-block">
-          <div class="riep-val end" id="dispEnd">--:--</div>
-          <div class="riep-lbl">Fine stimata</div>
-        </div>
-        <div class="riep-block">
-          <div class="riep-val dur" id="dispDur">—</div>
-          <div class="riep-lbl">Durata totale</div>
-        </div>
+        <div class="riep-block"><div class="riep-val start" id="dispStart">--:--</div><div class="riep-lbl">Inizio</div></div>
+        <div class="riep-block"><div class="riep-val end" id="dispEnd">--:--</div><div class="riep-lbl">Fine stimata</div></div>
+        <div class="riep-block"><div class="riep-val dur" id="dispDur">—</div><div class="riep-lbl">Durata totale</div></div>
       </div>
       <div class="error-msg" id="errOrario" style="color:#e05c5c;margin-top:8px;">⚠ Inserisci l'ora di inizio</div>
     </div>
@@ -427,12 +431,11 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
     <div class="total-sub" id="totalSub"></div>
   </div>
   <button class="btn-invia" onclick="invia()">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Invia Riepilogo
   </button>
 </div>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay">
   <div class="overlay-box">
     <div class="overlay-icon" id="overlayIcon">⏳</div>
@@ -444,70 +447,81 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 <script>
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxy91fG_2-69V1ck9AmufRR9iX1Kne6cukwsGw0ay1dUlzYsePwAsJrXMISpOUBHwHVIA/exec';
 
-// ── ROWS DATA ──────────────────────────────────────────────────────────────────
-// defaultOn: true = toggle ON per default
 const ALL_ROWS = [
-  // A fissi — sempre inclusi, non mostrati
-  { cat:'A', id:'checkin',       name:'Valutazione / Check-in',               fixed:true,  dimMult:false, diffMult:false, base:20, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'A', id:'setup',         name:'Set-up postazione',                    fixed:true,  dimMult:false, diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'A', id:'lavaggio',      name:'Andata/Ritorno Autolavaggio',          fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'A', id:'negozio',       name:'Andata/Ritorno Negozio Vernici',       fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:false },
-  // B interni
-  { cat:'B', id:'sedile',        name:'Sedili',                               fixed:false, dimMult:true,  diffMult:true,  base:12, qty:4, qtyEdit:true,  defaultOn:true  },
-  { cat:'B', id:'moquette',      name:'Tappetini e moquette',                 fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'B', id:'baule',         name:'Bagagliaio (fondo + bordi)',           fixed:false, dimMult:true,  diffMult:true,  base:15, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'B', id:'plastica',      name:'Plance e plastica interna',            fixed:false, dimMult:true,  diffMult:true,  base:10, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'B', id:'pannello',      name:'Pannelli porta interni',               fixed:false, dimMult:true,  diffMult:true,  base:8,  qty:4, qtyEdit:true,  defaultOn:true  },
-  { cat:'B', id:'cielo',         name:'Cielo (interno tetto)',                fixed:false, dimMult:true,  diffMult:true,  base:18, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'B', id:'vetriint',      name:'Pulizia vetri interni',                fixed:false, dimMult:true,  diffMult:true,  base:10, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'B', id:'asciugatura',   name:'Asciugatura auto (dopo lavaggio)',     fixed:false, dimMult:true,  diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:false },
-  // C pulizia
-  { cat:'C', grp:'pulizia', id:'vetriext',    name:'Pulizia vetri esterni',            fixed:false, dimMult:true,  diffMult:true,  base:12, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'C', grp:'pulizia', id:'diluente',    name:'Passaggio diluente',               fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
-  { cat:'C', grp:'pulizia', id:'motore',      name:'Pulizia vano motore',              fixed:false, dimMult:false, diffMult:true,  base:5,  qty:1, qtyEdit:false, defaultOn:true  },
-  // C lucidatura
-  { cat:'C', grp:'luc', id:'luc_cofano',      name:'Cofano (lucidatura)',              fixed:false, dimMult:true,  diffMult:true,  base:30, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'C', grp:'luc', id:'luc_sport',       name:'Sportelli (lucidatura)',           fixed:false, dimMult:true,  diffMult:true,  base:25, qty:4, qtyEdit:true,  defaultOn:false },
-  { cat:'C', grp:'luc', id:'luc_paraurti',    name:'Paraurti (lucidatura)',            fixed:false, dimMult:true,  diffMult:true,  base:20, qty:2, qtyEdit:true,  defaultOn:false },
-  { cat:'C', grp:'luc', id:'luc_parafango',   name:'Parafanghi (lucidatura)',          fixed:false, dimMult:true,  diffMult:true,  base:15, qty:4, qtyEdit:true,  defaultOn:false },
-  // C tetto
-  { cat:'C', grp:'tetto', id:'luc_tetto',     name:'Tetto (lucidatura)',              fixed:false, dimMult:true,  diffMult:true,  base:25, qty:1, qtyEdit:false, defaultOn:false },
-  // D ruote
-  { cat:'D', id:'cerchi',        name:'Cerchi — sporcizia freni incrostata',  fixed:false, dimMult:false, diffMult:true,  base:15, qty:4, qtyEdit:true,  defaultOn:false },
-  { cat:'D', id:'coppe',         name:'Verniciatura coppe',                   fixed:false, dimMult:false, diffMult:false, base:20, qty:4, qtyEdit:true,  defaultOn:false },
-  { cat:'D', id:'cerchifero',    name:'Verniciatura cerchi in ferro',         fixed:false, dimMult:false, diffMult:false, base:30, qty:4, qtyEdit:true,  defaultOn:false },
-  { cat:'D', id:'gomme',         name:'Lucidatura gomme',                     fixed:false, dimMult:false, diffMult:false, base:5,  qty:4, qtyEdit:true,  defaultOn:false },
-  // F trattamenti fissi
-  { cat:'F', id:'tergi',         name:'Verniciatura spazzole tergicristallo', fixed:true,  dimMult:false, diffMult:false, base:10, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'F', id:'chiusura',      name:'Pulizia postazione + lavaggio stracci',fixed:true,  dimMult:false, diffMult:false, base:20, qty:1, qtyEdit:false, defaultOn:true  },
-  // hidden - usati solo per calcolo ritocchi
-  { cat:'_', id:'kit5',          name:'',                                     fixed:true,  dimMult:false, diffMult:false, base:25, qty:1, qtyEdit:false, defaultOn:false, hidden:true },
-  { cat:'_', id:'kit20',         name:'',                                     fixed:true,  dimMult:false, diffMult:false, base:50, qty:1, qtyEdit:false, defaultOn:false, hidden:true },
+  // A - Logistica
+  { cat:'A', id:'checkin',      name:'Valutazione / Check-in',             fixed:true,  dimMult:false, diffMult:false, base:20, qty:1, qtyEdit:false, defaultOn:true,  showDip:false },
+  { cat:'A', id:'setup',        name:'Set-up postazione',                  fixed:true,  dimMult:false, diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:true,  showDip:false },
+  { cat:'A', id:'lavaggio',     name:'Andata/Ritorno Autolavaggio',        fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:true,  showDip:true  },
+  { cat:'A', id:'negozio',      name:'Vernice da fare',                    fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:false, showDip:false },
+  // B - Interni
+  { cat:'B', id:'sedile',       name:'Sedili',                             fixed:false, dimMult:true,  diffMult:true,  base:12, qty:0, qtyEdit:true,  defaultOn:true  },
+  { cat:'B', id:'moquette',     name:'Tappetini e moquette',               fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
+  { cat:'B', id:'baule',        name:'Bagagliaio (fondo + bordi)',         fixed:false, dimMult:true,  diffMult:true,  base:15, qty:1, qtyEdit:false, defaultOn:true  },
+  { cat:'B', id:'plastica',     name:'Plance e plastica interna',          fixed:false, dimMult:true,  diffMult:true,  base:10, qty:1, qtyEdit:false, defaultOn:true  },
+  { cat:'B', id:'pannello',     name:'Pannelli porta interni',             fixed:false, dimMult:true,  diffMult:true,  base:8,  qty:0, qtyEdit:true,  defaultOn:true  },
+  { cat:'B', id:'cielo',        name:'Cielo (interno tetto)',              fixed:false, dimMult:true,  diffMult:true,  base:18, qty:1, qtyEdit:false, defaultOn:false },
+  { cat:'B', id:'vetriint',     name:'Pulizia vetri interni',              fixed:false, dimMult:true,  diffMult:true,  base:10, qty:1, qtyEdit:false, defaultOn:false },
+  { cat:'B', id:'asciugatura',  name:'Asciugatura auto',                   fixed:false, dimMult:true,  diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:false },
+  // C - Esterni pulizia
+  { cat:'C', grp:'pulizia', id:'vetriext',     name:'Pulizia vetri esterni',          fixed:false, dimMult:true,  diffMult:true,  base:12, qty:1, qtyEdit:false, defaultOn:false },
+  { cat:'C', grp:'pulizia', id:'diluente',     name:'Passaggio diluente',             fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
+  { cat:'C', grp:'pulizia', id:'motore',       name:'Pulizia vano motore',            fixed:false, dimMult:false, diffMult:true,  base:5,  qty:1, qtyEdit:false, defaultOn:true  },
+  // C - Lucidatura
+  { cat:'C', grp:'luc', id:'luc_cofano',       name:'Cofano (lucidatura)',            fixed:false, dimMult:true,  diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:false },
+  { cat:'C', grp:'luc', id:'luc_sport',        name:'Sportelli (lucidatura)',         fixed:false, dimMult:true,  diffMult:false, base:25, qty:0, qtyEdit:true,  defaultOn:false },
+  { cat:'C', grp:'luc', id:'luc_paraurti',     name:'Paraurti (lucidatura)',          fixed:false, dimMult:true,  diffMult:false, base:20, qty:0, qtyEdit:true,  defaultOn:false },
+  { cat:'C', grp:'luc', id:'luc_parafango',    name:'Parafanghi (lucidatura)',        fixed:false, dimMult:true,  diffMult:false, base:15, qty:0, qtyEdit:true,  defaultOn:false },
+  // C - Tetto
+  { cat:'C', grp:'tetto', id:'luc_tetto',      name:'Tetto (lucidatura)',             fixed:false, dimMult:true,  diffMult:false, base:25, qty:1, qtyEdit:false, defaultOn:false },
+  // C - Verniciatura esterni
+  { cat:'C', grp:'vern', id:'plastiche_ext',   name:'Plastiche esterne da verniciare',fixed:false, dimMult:true,  diffMult:true,  base:15, qty:0, qtyEdit:true,  defaultOn:false },
+  { cat:'C', grp:'vern', id:'tergi',           name:'Verniciatura spazzole tergicristallo', fixed:true, dimMult:false, diffMult:false, base:10, qty:1, qtyEdit:false, defaultOn:false },
+  // D - Ruote (ferro e pneumatici — cerchi lega gestiti separatamente)
+  { cat:'D', id:'coppe',        name:'Verniciatura coppe',                 fixed:false, dimMult:false, diffMult:false, base:20, qty:0, qtyEdit:true,  defaultOn:false },
+  { cat:'D', id:'cerchifero',   name:'Verniciatura cerchi in ferro',       fixed:false, dimMult:false, diffMult:false, base:30, qty:0, qtyEdit:true,  defaultOn:false },
+  { cat:'D', id:'gomme',        name:'Pulizia pneumatici',                 fixed:false, dimMult:false, diffMult:false, base:5,  qty:0, qtyEdit:true,  defaultOn:false },
+  // F - Chiusura
+  { cat:'F', id:'chiusura',     name:'Pulizia postazione + lavaggio stracci', fixed:true, dimMult:false, diffMult:false, base:20, qty:1, qtyEdit:false, defaultOn:true },
 ];
 
-// ── STATE ─────────────────────────────────────────────────────────────────────
-let cfg = { mSmall:1.0, mMed:1.5, mLarge:2.0, dNulla:0.2, dLieve:1.0, dMedio:2.0, dAlto:3.5, fLieve:1.0, fMedia:1.8, fForte:3.0, lLieve:0.8, lMedia:1.5, lForte:2.5, buffer:10, bases:{} };
+// STATE
+let cfg = {
+  mSmall:1.0, mMed:1.5, mLarge:2.0,
+  dNulla:0.2, dLieve:1.0, dMedio:2.0, dAlto:3.5,
+  fLieve:1.0, fMedia:1.8, fForte:3.0,
+  lLieve:0.8, lMedia:1.5, lForte:2.5,
+  cLieve:1.0, cMedio:2.0, cForte:3.5,
+  buffer:10, bases:{}, waNumber:''
+};
 ALL_ROWS.forEach(r => { cfg.bases[r.id] = r.base; });
-cfg.bases['fari'] = 20; cfg.bases['decontam'] = 35;
+cfg.bases['fari'] = 20;
+cfg.bases['decontam'] = 35;
+cfg.bases['cerchi_lega'] = 15;
+cfg.bases['ritocco_singolo'] = 5;
 
-let selSeg = 'med', selDiff = null, selFari = 'media', selDecontamDiff = 'medio', selLuc = 'media';
+let selSeg = 'med', selDiff = null, selFari = 'media', selLuc = 'media';
+let selDecontamDiff = 'medio', selCerchiLevel = 'medio';
 let rowState = {};
 ALL_ROWS.forEach(r => { rowState[r.id] = { active: r.defaultOn, qty: r.qty }; });
-rowState['decontam'] = { active: false, qty: 4 };
+rowState['decontam']    = { active: false, qty: 0 };
+rowState['cerchi_lega'] = { active: false, qty: 0 };
+rowState['negozio']     = { active: false, qty: 1 };
 
 function loadConfig() {
   try {
     const saved = localStorage.getItem('tempario_config');
     if (!saved) return;
     const c = JSON.parse(saved);
-    ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto','fLieve','fMedia','fForte','lLieve','lMedia','lForte','buffer'].forEach(k => {
+    ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto','fLieve','fMedia','fForte',
+     'lLieve','lMedia','lForte','cLieve','cMedio','cForte','buffer'].forEach(k => {
       if (c[k] !== undefined) cfg[k] = +c[k];
     });
+    if (c.waNumber) cfg.waNumber = c.waNumber;
     if (c.bases) Object.keys(c.bases).forEach(k => { cfg.bases[k] = +c.bases[k]; });
   } catch(e) {}
 }
 
-// ── RENDER ────────────────────────────────────────────────────────────────────
+// RENDER
 function makeOpRow(r) {
   if (r.hidden) return null;
   const rs = rowState[r.id];
@@ -515,9 +529,12 @@ function makeOpRow(r) {
   const div = document.createElement('div');
   div.className = 'op-row';
   div.id = 'oprow_' + r.id;
-  const right = r.qtyEdit
-    ? `<div class="qty-wrap"><button class="qty-btn" onclick="chQty('${r.id}',-1)">−</button><span class="qty-val" id="qty_${r.id}">${rs.qty}</span><button class="qty-btn" onclick="chQty('${r.id}',1)">+</button></div>`
-    : `<span class="qty-fixed">${rs.qty > 1 ? '×'+rs.qty : ''}</span>`;
+  let right = '';
+  if (r.qtyEdit) {
+    right = `<div class="qty-wrap"><button class="qty-btn" onclick="chQty('${r.id}',-1)">−</button><span class="qty-val" id="qty_${r.id}">${rs.qty}</span><button class="qty-btn" onclick="chQty('${r.id}',1)">+</button></div>`;
+  } else {
+    right = `<span class="qty-fixed">${rs.qty > 1 ? '×'+rs.qty : ''}</span>`;
+  }
   div.innerHTML = `
     <div class="toggle-wrap"><label class="toggle"><input type="checkbox" ${on?'checked':''} onchange="toggleOp('${r.id}',this.checked)"><span class="slider"></span></label></div>
     <span class="op-name ${on?'':'off'}" id="opname_${r.id}">${r.name}</span>
@@ -533,10 +550,12 @@ function renderGroup(rows, containerId) {
 }
 
 function renderAll() {
+  renderGroup(ALL_ROWS.filter(r => r.cat==='A' && r.showDip), 'opLogistica');
   renderGroup(ALL_ROWS.filter(r => r.cat==='B'), 'opB');
   renderGroup(ALL_ROWS.filter(r => r.cat==='C' && r.grp==='pulizia'), 'opC_pulizia');
   renderGroup(ALL_ROWS.filter(r => r.cat==='C' && r.grp==='luc'), 'opC_luc');
   renderGroup(ALL_ROWS.filter(r => r.cat==='C' && r.grp==='tetto'), 'opC_tetto');
+  renderGroup(ALL_ROWS.filter(r => r.cat==='C' && r.grp==='vern'), 'opC_vern');
   renderGroup(ALL_ROWS.filter(r => r.cat==='D'), 'opD');
   renderGroup(ALL_ROWS.filter(r => r.cat==='F'), 'opF');
   document.getElementById('lbl-small').textContent = '×'+cfg.mSmall.toFixed(1);
@@ -544,12 +563,11 @@ function renderAll() {
   document.getElementById('lbl-large').textContent = '×'+cfg.mLarge.toFixed(1);
 }
 
-// ── CONTROLS ──────────────────────────────────────────────────────────────────
+// CONTROLS
 function setSeg(btn) {
   document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active'); selSeg = btn.dataset.seg; recalc();
 }
-
 function setDiff(btn) {
   document.querySelectorAll('#diffGrid .diff-btn').forEach(b => b.className = 'diff-btn');
   btn.classList.add('active-' + btn.dataset.diff);
@@ -558,89 +576,95 @@ function setDiff(btn) {
   document.getElementById('errSporcizia').classList.remove('show');
   recalc();
 }
-
-function setDecontamDiff(btn) {
-  document.querySelectorAll('#decontamDetail .diff-btn').forEach(b => b.className = 'diff-btn');
-  btn.classList.add('active-' + btn.dataset.dd);
-  selDecontamDiff = btn.dataset.dd; recalc();
-}
-
-function setFari(btn) {
-  document.querySelectorAll('.fari-btn').forEach(b => b.className = 'fari-btn');
-  btn.classList.add('active-' + btn.dataset.fl);
-  selFari = btn.dataset.fl; recalc();
-}
-
 function setLuc(btn) {
-  document.querySelectorAll('[data-luc]').forEach(b => b.className = 'diff-btn');
-  btn.classList.add('active-' + (btn.dataset.luc === 'forte' ? 'alto' : btn.dataset.luc === 'media' ? 'medio' : 'lieve'));
-  selLuc = btn.dataset.luc; recalc();
+  document.querySelectorAll('[data-luc]').forEach(b => b.className = 'level-btn');
+  const lvl = btn.dataset.luc;
+  btn.classList.add(lvl==='forte'?'active-forte':lvl==='media'?'active-medio':'active-lieve');
+  selLuc = lvl; recalc();
 }
-
+function setFari(btn) {
+  document.querySelectorAll('[data-fl]').forEach(b => b.className = 'level-btn');
+  const lvl = btn.dataset.fl;
+  btn.classList.add(lvl==='forte'?'active-forte':lvl==='media'?'active-medio':'active-lieve');
+  selFari = lvl; recalc();
+}
+function setDecontamDiff(btn) {
+  document.querySelectorAll('[data-dd]').forEach(b => b.className = 'level-btn');
+  const lvl = btn.dataset.dd;
+  btn.classList.add(lvl==='alto'?'active-forte':lvl==='medio'?'active-medio':'active-lieve');
+  selDecontamDiff = lvl; recalc();
+}
+function setCerchiLevel(btn) {
+  document.querySelectorAll('[data-cl]').forEach(b => b.className = 'level-btn');
+  const lvl = btn.dataset.cl;
+  btn.classList.add(lvl==='forte'?'active-forte':lvl==='medio'?'active-medio':'active-lieve');
+  selCerchiLevel = lvl; recalc();
+}
 function toggleOp(id, checked) {
   rowState[id].active = checked;
   const n = document.getElementById('opname_' + id);
   if (n) n.className = 'op-name ' + (checked ? '' : 'off');
   recalc();
 }
-
 function toggleDecontam(checked) {
   rowState['decontam'].active = checked;
   document.getElementById('decontamLabel').className = 'op-name' + (checked ? '' : ' off');
   document.getElementById('decontamDetail').style.opacity = checked ? '1' : '0.35';
   document.getElementById('decontamDetail').style.pointerEvents = checked ? '' : 'none';
 }
-
-// Fari toggle — mostra/nasconde selector
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('fariActive').addEventListener('change', function() {
-    document.getElementById('fariLabel').className = 'op-name' + (this.checked ? '' : ' off');
-    document.getElementById('fariSelector').style.opacity = this.checked ? '1' : '0.35';
-    document.getElementById('fariSelector').style.pointerEvents = this.checked ? '' : 'none';
-    recalc();
-  });
-});
-
+function toggleFari(checked) {
+  document.getElementById('fariLabel').className = 'op-name' + (checked ? '' : ' off');
+  document.getElementById('fariSelector').style.opacity = checked ? '1' : '0.35';
+  document.getElementById('fariSelector').style.pointerEvents = checked ? '' : 'none';
+}
+function toggleCerchi(checked) {
+  rowState['cerchi_lega'].active = checked;
+  document.getElementById('cerchiLabel').className = 'op-name' + (checked ? '' : ' off');
+  document.getElementById('cerchiDetail').style.opacity = checked ? '1' : '0.35';
+  document.getElementById('cerchiDetail').style.pointerEvents = checked ? '' : 'none';
+}
+function toggleNegozio(checked) {
+  rowState['negozio'].active = checked;
+  document.getElementById('negozioLabel').className = 'op-name' + (checked ? '' : ' off');
+}
 function chQty(id, d) {
-  if (id === 'decontam') {
-    rowState['decontam'].qty = Math.max(1, rowState['decontam'].qty + d);
-    document.getElementById('qty_decontam').textContent = rowState['decontam'].qty;
-  } else {
-    rowState[id].qty = Math.max(1, rowState[id].qty + d);
-    const el = document.getElementById('qty_' + id);
-    if (el) el.textContent = rowState[id].qty;
+  const rs = rowState[id] || (rowState[id] = { active: true, qty: 0 });
+  rs.qty = Math.max(0, rs.qty + d);
+  const el = document.getElementById('qty_' + id);
+  if (el) {
+    el.textContent = rs.qty;
+    if (rs.qty > 0) { el.style.color = ''; el.style.border = ''; }
+    const err = document.getElementById('qtyErr_' + id);
+    if (err && rs.qty > 0) err.remove();
   }
   recalc();
 }
 
 // CALC
 function getDifM() {
-  if (selDiff === 'nulla') return cfg.dNulla || 0.2;
-  if (selDiff === 'lieve') return cfg.dLieve;
-  if (selDiff === 'medio') return cfg.dMedio;
-  if (selDiff === 'alto')  return cfg.dAlto;
+  if (selDiff==='nulla') return cfg.dNulla||0.2;
+  if (selDiff==='lieve') return cfg.dLieve;
+  if (selDiff==='medio') return cfg.dMedio;
+  if (selDiff==='alto')  return cfg.dAlto;
   return 1;
 }
-
-function getLucM() {
-  return selLuc === 'lieve' ? (cfg.lLieve||0.8) : selLuc === 'media' ? (cfg.lMedia||1.5) : (cfg.lForte||2.5);
-}
+function getLucM() { return selLuc==='lieve'?(cfg.lLieve||0.8):selLuc==='media'?(cfg.lMedia||1.5):(cfg.lForte||2.5); }
+function getFariM() { return selFari==='lieve'?(cfg.fLieve||1.0):selFari==='media'?(cfg.fMedia||1.8):(cfg.fForte||3.0); }
+function getCerchiM() { return selCerchiLevel==='lieve'?(cfg.cLieve||1.0):selCerchiLevel==='medio'?(cfg.cMedio||2.0):(cfg.cForte||3.5); }
 
 function calcRitocchi() {
   const n = parseInt(document.getElementById('ritocchiNum').value) || 0;
-  if (n === 0) { document.getElementById('ritocchiNote').textContent = 'Inserisci 0 se non ci sono ritocchi'; return 0; }
-  const bSingolo = cfg.bases['ritocco_singolo'] || 5;
-  const mins = n * bSingolo;
-  document.getElementById('ritocchiNote').textContent = n + ' ritocchi x ' + bSingolo + ' min = ' + mins + ' min';
-  return mins;
+  if (!n) return 0;
+  return n * (cfg.bases['ritocco_singolo'] || 5);
 }
 
 function calcTotal() {
-  const segM  = selSeg==='small' ? cfg.mSmall : selSeg==='med' ? cfg.mMed : cfg.mLarge;
+  const segM  = selSeg==='small'?cfg.mSmall:selSeg==='med'?cfg.mMed:cfg.mLarge;
   const difM  = getDifM();
   const lucM  = getLucM();
-  const fariM = selFari==='lieve' ? cfg.fLieve : selFari==='media' ? cfg.fMedia : cfg.fForte;
-  const dconM = selDecontamDiff==='lieve' ? cfg.dLieve : selDecontamDiff==='medio' ? cfg.dMedio : cfg.dAlto;
+  const fariM = getFariM();
+  const cerchiM = getCerchiM();
+  const dconM = selDecontamDiff==='lieve'?cfg.dLieve:selDecontamDiff==='medio'?cfg.dMedio:cfg.dAlto;
 
   let total = 0;
   ALL_ROWS.forEach(r => {
@@ -648,8 +672,9 @@ function calcTotal() {
     const rs = rowState[r.id];
     if (!rs || !rs.active) return;
     const base = cfg.bases[r.id] ?? r.base;
-    if (r.fixed) { total += base * rs.qty; return; }
-    let t = base * rs.qty;
+    const qty  = rs.qty || 1;
+    if (r.fixed) { total += base * qty; return; }
+    let t = base * qty;
     if (r.grp === 'luc' || r.grp === 'tetto') {
       t *= lucM;
       if (r.dimMult) t *= segM;
@@ -660,14 +685,27 @@ function calcTotal() {
     total += t;
   });
 
+  // Decontam
   if (rowState['decontam'].active) {
-    total += (cfg.bases['decontam']||35) * rowState['decontam'].qty * dconM * segM;
+    const qty = rowState['decontam'].qty || 1;
+    total += (cfg.bases['decontam']||35) * qty * dconM * segM;
   }
-  if (document.getElementById('fariActive') && document.getElementById('fariActive').checked) {
+  // Fari
+  if (document.getElementById('fariActive')?.checked) {
     total += (cfg.bases['fari']||20) * fariM;
   }
+  // Cerchi in lega
+  if (rowState['cerchi_lega'].active) {
+    const qty = rowState['cerchi_lega'].qty || 1;
+    total += (cfg.bases['cerchi_lega']||15) * qty * cerchiM * segM;
+  }
+  // Ritocchi
   total += calcRitocchi();
+  // Extra 1
   total += parseInt(document.getElementById('extraMin')?.value) || 0;
+  // Extra 2
+  total += parseInt(document.getElementById('extraMin2')?.value) || 0;
+  // Buffer
   total *= (1 + cfg.buffer/100);
   return total;
 }
@@ -688,7 +726,7 @@ function recalc() {
   document.getElementById('dispDur').textContent   = hm;
 }
 
-// ── VALIDATION ────────────────────────────────────────────────────────────────
+// VALIDATION
 function showError(cardId, inputId, errId) {
   const card = document.getElementById(cardId);
   if (card) { card.classList.add('has-error'); card.classList.add('shake'); setTimeout(()=>card.classList.remove('shake'),400); }
@@ -701,47 +739,82 @@ function clearError(cardId, inputId) {
   if (inputId) { const el=document.getElementById(inputId); if(el) el.classList.remove('error'); }
 }
 
-function validateExtra() {
-  const desc = document.getElementById('extraDesc').value.trim();
-  const mins = parseInt(document.getElementById('extraMin').value) || 0;
-  const hasDesc = desc.length > 0;
-  const hasMins = mins > 0;
-  const req = document.getElementById('extraMinReq');
-  if (req) req.style.display = hasDesc ? 'inline' : 'none';
-  // clear error while typing if now valid
-  if ((hasDesc && hasMins) || (!hasDesc && !hasMins)) {
-    clearError('cardExtra', null);
-    document.getElementById('errExtra').classList.remove('show');
-    document.getElementById('extraDesc').classList.remove('error');
-    document.getElementById('extraMin').classList.remove('error');
+function validateExtra(which) {
+  const sfx = which==='extra2' ? '2' : '';
+  const desc = document.getElementById('extraDesc'+sfx).value.trim();
+  const mins = parseInt(document.getElementById('extraMin'+sfx).value) || 0;
+  const cardId = which==='extra2' ? 'cardExtra2' : 'cardExtra';
+  const errId  = which==='extra2' ? 'errExtra2'  : 'errExtra';
+  if ((desc && !mins) || (!desc && mins)) {
+    showError(cardId, null, errId);
+    return false;
+  } else {
+    clearError(cardId, null);
+    document.getElementById(errId).classList.remove('show');
+    document.getElementById('extraDesc'+sfx).classList.remove('error');
+    document.getElementById('extraMin'+sfx).classList.remove('error');
+    return true;
   }
 }
 
 function validate() {
   let ok = true;
-  const targa = document.getElementById('targa').value.trim();
-  if (!targa) { showError('cardTarga','targa','errTarga'); ok=false; }
+  if (!document.getElementById('targa').value.trim()) { showError('cardTarga','targa','errTarga'); ok=false; }
   if (!selDiff) { showError('cardSporcizia',null,'errSporcizia'); document.querySelectorAll('#diffGrid .diff-btn').forEach(b=>b.classList.add('error-outline')); ok=false; }
-  else { document.querySelectorAll('#diffGrid .diff-btn').forEach(b=>b.classList.remove('error-outline')); }
-  // Extra: se uno dei due è compilato, entrambi sono obbligatori
-  const extraDesc = document.getElementById('extraDesc').value.trim();
-  const extraMin  = parseInt(document.getElementById('extraMin').value) || 0;
-  if ((extraDesc && !extraMin) || (!extraDesc && extraMin)) {
-    showError('cardExtra', null, 'errExtra');
-    if (extraDesc && !extraMin) document.getElementById('extraMin').classList.add('error');
-    if (!extraDesc && extraMin) document.getElementById('extraDesc').classList.add('error');
+  else document.querySelectorAll('#diffGrid .diff-btn').forEach(b=>b.classList.remove('error-outline'));
+  if (!validateExtra('extra'))  ok=false;
+  if (!validateExtra('extra2')) ok=false;
+  // Quantità = 0 con toggle ON → errore
+  const qtyChecks = [
+    { id:'sedile',       name:'Sedili',           card:'opB' },
+    { id:'pannello',     name:'Pannelli porta',    card:'opB' },
+    { id:'luc_sport',    name:'Sportelli lucidatura', card:null },
+    { id:'luc_paraurti', name:'Paraurti lucidatura',  card:null },
+    { id:'luc_parafango',name:'Parafanghi lucidatura',card:null },
+    { id:'plastiche_ext',name:'Plastiche esterne', card:null },
+    { id:'coppe',        name:'Coppe',             card:null },
+    { id:'cerchifero',   name:'Cerchi ferro',      card:null },
+    { id:'gomme',        name:'Pneumatici',        card:null },
+  ];
+  qtyChecks.forEach(({id, name}) => {
+    const rs = rowState[id];
+    if (rs && rs.active && (rs.qty === 0 || rs.qty === undefined)) {
+      const el = document.getElementById('qty_' + id);
+      if (el) { el.style.color = 'var(--error)'; el.style.border = '2px solid var(--error)'; el.style.borderRadius = '4px'; }
+      if (!document.getElementById('qtyErr_' + id)) {
+        const row = document.getElementById('oprow_' + id);
+        if (row) {
+          const err = document.createElement('div');
+          err.id = 'qtyErr_' + id;
+          err.style.cssText = 'font-size:11px;color:var(--error);padding:2px 48px 6px;';
+          err.textContent = '⚠ Inserisci la quantità per: ' + name;
+          row.after(err);
+        }
+      }
+      ok = false;
+    } else {
+      const el = document.getElementById('qty_' + id);
+      if (el) { el.style.color = ''; el.style.border = ''; }
+      const err = document.getElementById('qtyErr_' + id);
+      if (err) err.remove();
+    }
+  });
+  // Decontam pezzi = 0
+  if (rowState['decontam']?.active && !rowState['decontam'].qty) {
+    document.getElementById('qty_decontam').style.cssText += 'color:var(--error)!important;';
     ok = false;
   }
-  const ora = document.getElementById('oraInizio').value;
-  if (!ora) { showError('cardOrario','oraInizio','errOrario'); ok=false; }
-  if (!ok) {
-    const firstErr = document.querySelector('.has-error');
-    if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+  // Cerchi lega = 0
+  if (rowState['cerchi_lega']?.active && !rowState['cerchi_lega'].qty) {
+    document.getElementById('qty_cerchi_lega').style.cssText += 'color:var(--error)!important;';
+    ok = false;
   }
+  if (!document.getElementById('oraInizio').value) { showError('cardOrario','oraInizio','errOrario'); ok=false; }
+  if (!ok) { const fe=document.querySelector('.has-error, [style*="var(--error)"]'); if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'}); }
   return ok;
 }
 
-// ── INVIA ─────────────────────────────────────────────────────────────────────
+// INVIA
 function invia() {
   if (!validate()) return;
 
@@ -752,109 +825,114 @@ function invia() {
   const segLabel = selSeg==='small'?'Piccola':selSeg==='med'?'Media':'Grande/SUV';
   const difLabel = selDiff==='nulla'?'Quasi nulla':selDiff==='lieve'?'Lieve':selDiff==='medio'?'Medio':'Alto';
   const fariLabel= selFari==='lieve'?'Lieve':selFari==='media'?'Media':'Forte';
+  const lucLabel = selLuc==='lieve'?'Lieve':selLuc==='media'?'Media':'Forte';
+  const cerchiLabel = selCerchiLevel==='lieve'?'Lieve':selCerchiLevel==='medio'?'Medio':'Forte';
   const dconLabel= selDecontamDiff==='lieve'?'Lieve':selDecontamDiff==='medio'?'Medio':'Alto';
   const ritocchi = parseInt(document.getElementById('ritocchiNum').value)||0;
   const extraMin = parseInt(document.getElementById('extraMin').value)||0;
   const extraDesc= document.getElementById('extraDesc').value.trim();
-  const segM     = selSeg==='small'?cfg.mSmall:selSeg==='med'?cfg.mMed:cfg.mLarge;
-  const difM     = getDifM();
+  const extraMin2= parseInt(document.getElementById('extraMin2').value)||0;
+  const extraDesc2=document.getElementById('extraDesc2').value.trim();
   const note     = document.getElementById('note').value.trim();
-  const now = new Date();
+  const now      = new Date();
   const dataOggi = now.toLocaleDateString('it-IT');
-  const oraInvio = now.toLocaleTimeString('it-IT', {hour:'2-digit', minute:'2-digit'});
+  const oraInvio = now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
 
-  const lucLabel = selLuc==='lieve'?'Lieve':selLuc==='media'?'Media':'Forte';
-  const opAttive = [];
-  ALL_ROWS.filter(r=>!r.hidden&&r.cat!=='A'&&r.cat!=='_'&&rowState[r.id]&&rowState[r.id].active).forEach(r=>{
-    opAttive.push(r.name + (rowState[r.id].qty>1?' ×'+rowState[r.id].qty:''));
-  });
-  if (rowState['decontam'].active) opAttive.push(`Decontaminazione ×${rowState['decontam'].qty} pezzi (${dconLabel})`);
-  if (document.getElementById('fariActive').checked) opAttive.push(`Fari - lucidatura ${fariLabel}`);
-  if (ritocchi>0) opAttive.push(`Ritocchi vernice: ${ritocchi}`);
-  if (extraMin>0) opAttive.push(`Extra: ${extraDesc||'lavorazione aggiuntiva'} (+${extraMin} min)`);
-
-  // Payload granulare — ogni operazione ha il suo campo
   const rs = rowState;
-  const payload = {
-    data: dataOggi,
-    oraInvio,
-    targa,
-    segmento: segLabel,
-    sporcizia: difLabel,
-    // INTERNI
-    sedili:      rs['sedile']?.active    ? rs['sedile'].qty    : '',
-    tappetini:   rs['moquette']?.active  ? '✓'                : '',
-    bagagliaio:  rs['baule']?.active     ? '✓'                : '',
-    plance:      rs['plastica']?.active  ? '✓'                : '',
-    pannelli:    rs['pannello']?.active  ? rs['pannello'].qty  : '',
-    cielo:       rs['cielo']?.active     ? '✓'                : '',
-    vetriInt:    rs['vetriint']?.active  ? '✓'                : '',
-    asciugatura: rs['asciugatura']?.active ? '✓'              : '',
-    // ESTERNI PULIZIA
-    vetriExt:    rs['vetriext']?.active  ? '✓'                : '',
-    diluente:    rs['diluente']?.active  ? '✓'                : '',
-    motore:      rs['motore']?.active    ? '✓'                : '',
-    decontam:    rs['decontam']?.active  ? ('×' + rs['decontam'].qty + ' ' + dconLabel) : '',
-    // LUCIDATURA
-    lucLivello:  lucLabel,
-    lucCofano:   rs['luc_cofano']?.active    ? '✓'                        : '',
-    lucSportelli:rs['luc_sport']?.active     ? rs['luc_sport'].qty         : '',
-    lucParaurti: rs['luc_paraurti']?.active  ? rs['luc_paraurti'].qty      : '',
-    lucParafango:rs['luc_parafango']?.active ? rs['luc_parafango'].qty     : '',
-    tetto:       rs['luc_tetto']?.active     ? '✓'                        : '',
-    // FARI
-    fari:        document.getElementById('fariActive').checked ? fariLabel : '',
-    // RUOTE
-    cerchi:      rs['cerchi']?.active    ? rs['cerchi'].qty    : '',
-    coppe:       rs['coppe']?.active     ? rs['coppe'].qty     : '',
-    cerchiFerro: rs['cerchifero']?.active? rs['cerchifero'].qty: '',
-    gomme:       rs['gomme']?.active     ? rs['gomme'].qty     : '',
-    // RITOCCHI & TRATTAMENTI
-    ritocchi:    ritocchi || '',
-    tergi:       rs['tergi']?.active     ? '✓'                : '',
-    // EXTRA
-    extraDesc:   extraDesc || '',
-    extraMin:    extraMin  || '',
-    // ORARIO
-    oraInizio: oraI,
-    oraFine: oraF,
-    durataMin: Math.round(total),
-    durataHM: toHM(total),
-    note
-  };
+
+  // WhatsApp message — senza moltiplicatori visibili
+  const opLines = [];
+  if (rs['lavaggio']?.active)   opLines.push('🚿 Autolavaggio');
+  if (rs['negozio']?.active)    opLines.push('🖌 Vernice da fare');
+  ALL_ROWS.filter(r=>r.cat==='B'&&rs[r.id]?.active).forEach(r=>{
+    opLines.push('• '+r.name+(rs[r.id].qty>1?' ×'+rs[r.id].qty:''));
+  });
+  ALL_ROWS.filter(r=>r.cat==='C'&&rs[r.id]?.active).forEach(r=>{
+    opLines.push('• '+r.name+(rs[r.id].qty>1?' ×'+rs[r.id].qty:''));
+  });
+  if (rs['decontam']?.active) opLines.push(`• Decontaminazione ×${rs['decontam'].qty||1} pezzi (${dconLabel})`);
+  opLines.push(`• Lucidatura: ${lucLabel}`);
+  if (document.getElementById('fariActive')?.checked) opLines.push(`• Fari: ${fariLabel}`);
+  if (rs['cerchi_lega']?.active) opLines.push(`• Cerchi in lega ×${rs['cerchi_lega'].qty||1} (${cerchiLabel})`);
+  ALL_ROWS.filter(r=>r.cat==='D'&&rs[r.id]?.active).forEach(r=>{
+    opLines.push('• '+r.name+(rs[r.id].qty>1?' ×'+rs[r.id].qty:''));
+  });
+  if (ritocchi>0) opLines.push(`• Ritocchi vernice: ${ritocchi}`);
+  ALL_ROWS.filter(r=>r.cat==='F'&&rs[r.id]?.active).forEach(r=>{opLines.push('• '+r.name);});
+  if (extraMin>0) opLines.push(`• Extra 1: ${extraDesc} (+${extraMin} min)`);
+  if (extraMin2>0) opLines.push(`• Extra 2: ${extraDesc2} (+${extraMin2} min)`);
 
   const msg =
 `🔧 *SCHEDA LAVORO*
 ━━━━━━━━━━━━━━━━━
-📅 ${dataOggi} — Inviato alle ${oraInvio}
+📅 ${dataOggi} — ${oraInvio}
 🔖 Targa: *${targa}*
-📐 Auto: ${segLabel} (×${segM.toFixed(1)})
-💧 Sporcizia: ${difLabel} (×${difM.toFixed(1)})
+📐 Auto: ${segLabel}
+💧 Sporcizia: ${difLabel}
 ━━━━━━━━━━━━━━━━━
 📋 Operazioni:
-${opAttive.map(o=>'  • '+o).join('\n')}
+${opLines.join('\n')}
 ━━━━━━━━━━━━━━━━━
 ⏰ Inizio: ${oraI}
 🏁 Fine stimata: *${oraF}*
-⏱ Durata: ${toHM(total)} (${Math.round(total)} min)
-📝 ${note}`;
+⏱ Durata: ${toHM(total)} (${Math.round(total)} min)${note?'\n📝 '+note:''}`;
+
+  // Payload Google Sheet
+  const payload = {
+    data: dataOggi, oraInvio, targa, segmento: segLabel, sporcizia: difLabel,
+    lavaggio:     rs['lavaggio']?.active   ? '✓' : '',
+    negozio:      rs['negozio']?.active    ? '✓' : '',
+    sedili:       rs['sedile']?.active     ? (rs['sedile'].qty||'') : '',
+    tappetini:    rs['moquette']?.active   ? '✓' : '',
+    bagagliaio:   rs['baule']?.active      ? '✓' : '',
+    plance:       rs['plastica']?.active   ? '✓' : '',
+    pannelli:     rs['pannello']?.active   ? (rs['pannello'].qty||'') : '',
+    cielo:        rs['cielo']?.active      ? '✓' : '',
+    vetriInt:     rs['vetriint']?.active   ? '✓' : '',
+    asciugatura:  rs['asciugatura']?.active? '✓' : '',
+    vetriExt:     rs['vetriext']?.active   ? '✓' : '',
+    diluente:     rs['diluente']?.active   ? '✓' : '',
+    motore:       rs['motore']?.active     ? '✓' : '',
+    decontam:     rs['decontam']?.active   ? `×${rs['decontam'].qty||1} ${dconLabel}` : '',
+    lucLivello:   lucLabel,
+    lucCofano:    rs['luc_cofano']?.active  ? '✓' : '',
+    lucSportelli: rs['luc_sport']?.active   ? (rs['luc_sport'].qty||'') : '',
+    lucParaurti:  rs['luc_paraurti']?.active? (rs['luc_paraurti'].qty||'') : '',
+    lucParafango: rs['luc_parafango']?.active?(rs['luc_parafango'].qty||''):'',
+    tetto:        rs['luc_tetto']?.active   ? '✓' : '',
+    plasticheExt: rs['plastiche_ext']?.active?(rs['plastiche_ext'].qty||''):'',
+    tergi:        rs['tergi']?.active       ? '✓' : '',
+    fari:         document.getElementById('fariActive')?.checked ? fariLabel : '',
+    cerchiLega:   rs['cerchi_lega']?.active ? `×${rs['cerchi_lega'].qty||1} ${cerchiLabel}` : '',
+    coppe:        rs['coppe']?.active       ? (rs['coppe'].qty||'') : '',
+    cerchiFerro:  rs['cerchifero']?.active  ? (rs['cerchifero'].qty||'') : '',
+    gomme:        rs['gomme']?.active       ? (rs['gomme'].qty||'') : '',
+    ritocchi:     ritocchi||'',
+    extraDesc, extraMin: extraMin||'',
+    extraDesc2, extraMin2: extraMin2||'',
+    oraInizio: oraI, oraFine: oraF,
+    durataMin: Math.round(total), durataHM: toHM(total), note
+  };
 
   showOverlay('⏳','Invio in corso...','Salvataggio su Google Sheets');
 
-  if (SHEETS_URL && SHEETS_URL !== 'INSERISCI_QUI_LA_URL_APPS_SCRIPT') {
-    fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
-      .then(()=>{ showOverlay('✅','Salvato!','Registrato su Google Sheets'); setTimeout(()=>{ hideOverlay(); apriWA(msg); },1200); })
-      .catch(()=>{ showOverlay('⚠️','Errore rete','Apro WhatsApp comunque...'); setTimeout(()=>{ hideOverlay(); apriWA(msg); },1500); });
+  const waNum = cfg.waNumber ? cfg.waNumber.replace(/\D/g,'') : '';
+  const waUrl = waNum
+    ? `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`
+    : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+  if (SHEETS_URL && !SHEETS_URL.includes('INSERISCI')) {
+    fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{ showOverlay('✅','Salvato!','Registrato su Google Sheets'); setTimeout(()=>{ hideOverlay(); window.open(waUrl,'_blank'); },1200); })
+      .catch(()=>{ showOverlay('⚠️','Errore rete','Apro WhatsApp comunque...'); setTimeout(()=>{ hideOverlay(); window.open(waUrl,'_blank'); },1500); });
   } else {
-    hideOverlay(); apriWA(msg);
+    hideOverlay(); window.open(waUrl,'_blank');
   }
 }
 
-function apriWA(msg) { window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
-function showOverlay(icon,title,sub) { document.getElementById('overlayIcon').textContent=icon; document.getElementById('overlayTitle').textContent=title; document.getElementById('overlaySub').textContent=sub; document.getElementById('overlay').classList.add('show'); }
+function showOverlay(i,t,s) { document.getElementById('overlayIcon').textContent=i; document.getElementById('overlayTitle').textContent=t; document.getElementById('overlaySub').textContent=s; document.getElementById('overlay').classList.add('show'); }
 function hideOverlay() { document.getElementById('overlay').classList.remove('show'); }
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
 loadConfig();
 renderAll();
 recalc();
