@@ -295,58 +295,65 @@ renderTable('D',     'tblD');
 renderTable('E',     'tblE');
 renderTable('F',     'tblF');
 
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbw1w7KCUZIeq-LnUQIDfbHO2RrxRR4N1gsBUTx1KrHV21qTtI2piYnjai34BWS7WAIC8g/exec';
+
 function loadConfig() {
-  try {
-    const saved = localStorage.getItem('tempario_config');
-    if (!saved) return;
-    const c = JSON.parse(saved);
-    ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto',
-     'fLieve','fMedia','fForte','lLieve','lMedia','lForte',
-     'cLieve','cMedio','cForte','buffer'].forEach(k => {
-      if (c[k] !== undefined && document.getElementById(k)) document.getElementById(k).value = c[k];
+  showToast('⏳ Caricamento parametri...');
+  fetch(SHEETS_URL)
+    .then(r => r.json())
+    .then(c => {
+      ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto',
+       'fLieve','fMedia','fForte','lLieve','lMedia','lForte',
+       'cLieve','cMedio','cForte','buffer'].forEach(k => {
+        if (c[k] !== undefined && document.getElementById(k)) document.getElementById(k).value = c[k];
+      });
+      if (c.waNumber && document.getElementById('waNumber')) document.getElementById('waNumber').value = c.waNumber;
+      // bases
+      Object.keys(c).forEach(k => {
+        if (k.startsWith('base_')) {
+          const el = document.getElementById(k);
+          if (el) el.value = c[k];
+        }
+      });
+      showToast('✓ Parametri caricati da Google Sheet');
+    })
+    .catch(() => {
+      showToast('⚠ Errore caricamento — uso valori di default');
     });
-    if (c.waNumber && document.getElementById('waNumber')) document.getElementById('waNumber').value = c.waNumber;
-    if (c.bases) Object.entries(c.bases).forEach(([id, val]) => {
-      const el = document.getElementById('base_' + id);
-      if (el) el.value = val;
-    });
-  } catch(e) {}
 }
 
 function saveAll() {
-  const bases = {};
+  const config = {};
+  ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto',
+   'fLieve','fMedia','fForte','lLieve','lMedia','lForte',
+   'cLieve','cMedio','cForte','buffer'].forEach(k => {
+    const el = document.getElementById(k);
+    if (el) config[k] = parseFloat(el.value) || 0;
+  });
+  const waEl = document.getElementById('waNumber');
+  if (waEl) config['waNumber'] = waEl.value;
+
+  // bases
   ALL_ROWS.forEach(r => {
     const el = document.getElementById('base_' + r.id);
-    if (el) bases[r.id] = parseFloat(el.value) || 0;
+    if (el) config['base_' + r.id] = parseFloat(el.value) || 0;
   });
   ['fari','cerchi_lega','decontam','ritocco_singolo'].forEach(id => {
     const el = document.getElementById('base_' + id);
-    if (el) bases[id] = parseFloat(el.value) || 0;
+    if (el) config['base_' + id] = parseFloat(el.value) || 0;
   });
 
-  const cfg = {
-    mSmall: document.getElementById('mSmall').value,
-    mMed:   document.getElementById('mMed').value,
-    mLarge: document.getElementById('mLarge').value,
-    dNulla: document.getElementById('dNulla').value,
-    dLieve: document.getElementById('dLieve').value,
-    dMedio: document.getElementById('dMedio').value,
-    dAlto:  document.getElementById('dAlto').value,
-    fLieve: document.getElementById('fLieve').value,
-    fMedia: document.getElementById('fMedia').value,
-    fForte: document.getElementById('fForte').value,
-    lLieve: document.getElementById('lLieve').value,
-    lMedia: document.getElementById('lMedia').value,
-    lForte: document.getElementById('lForte').value,
-    cLieve: document.getElementById('cLieve').value,
-    cMedio: document.getElementById('cMedio').value,
-    cForte: document.getElementById('cForte').value,
-    buffer: document.getElementById('buffer').value,
-    waNumber: document.getElementById('waNumber').value,
-    bases
-  };
-  localStorage.setItem('tempario_config', JSON.stringify(cfg));
-  showToast('✓ Configurazione salvata!');
+  showToast('⏳ Salvataggio in corso...');
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({action: 'saveConfig', config})
+  }).then(() => {
+    showToast('✓ Salvato su Google Sheet!');
+  }).catch(() => {
+    showToast('⚠ Errore salvataggio');
+  });
 }
 
 function showToast(msg) {

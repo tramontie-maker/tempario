@@ -441,7 +441,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 </div>
 
 <script>
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxy91fG_2-69V1ck9AmufRR9iX1Kne6cukwsGw0ay1dUlzYsePwAsJrXMISpOUBHwHVIA/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbw1w7KCUZIeq-LnUQIDfbHO2RrxRR4N1gsBUTx1KrHV21qTtI2piYnjai34BWS7WAIC8g/exec';
 
 const ALL_ROWS = [
   // A - Logistica
@@ -503,18 +503,28 @@ rowState['decontam']    = { active: false, qty: 0 };
 rowState['cerchi_lega'] = { active: false, qty: 0 };
 rowState['negozio']     = { active: false, qty: 1 };
 
-function loadConfig() {
-  try {
-    const saved = localStorage.getItem('tempario_config');
-    if (!saved) return;
-    const c = JSON.parse(saved);
-    ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto','fLieve','fMedia','fForte',
-     'lLieve','lMedia','lForte','cLieve','cMedio','cForte','buffer'].forEach(k => {
-      if (c[k] !== undefined) cfg[k] = +c[k];
+function loadConfig(callback) {
+  fetch(SHEETS_URL)
+    .then(r => r.json())
+    .then(c => {
+      ['mSmall','mMed','mLarge','dNulla','dLieve','dMedio','dAlto','fLieve','fMedia','fForte',
+       'lLieve','lMedia','lForte','cLieve','cMedio','cForte','buffer'].forEach(k => {
+        if (c[k] !== undefined) cfg[k] = +c[k];
+      });
+      if (c.waNumber) cfg.waNumber = c.waNumber;
+      // bases
+      Object.keys(c).forEach(k => {
+        if (k.startsWith('base_')) {
+          const baseKey = k.replace('base_', '');
+          cfg.bases[baseKey] = +c[k];
+        }
+      });
+      if (callback) callback();
+    })
+    .catch(() => {
+      // Fallback ai valori di default se Sheet non raggiungibile
+      if (callback) callback();
     });
-    if (c.waNumber) cfg.waNumber = c.waNumber;
-    if (c.bases) Object.keys(c.bases).forEach(k => { cfg.bases[k] = +c.bases[k]; });
-  } catch(e) {}
 }
 
 // RENDER
@@ -929,9 +939,10 @@ ${opLines.join('\n')}
 function showOverlay(i,t,s) { document.getElementById('overlayIcon').textContent=i; document.getElementById('overlayTitle').textContent=t; document.getElementById('overlaySub').textContent=s; document.getElementById('overlay').classList.add('show'); }
 function hideOverlay() { document.getElementById('overlay').classList.remove('show'); }
 
-loadConfig();
-renderAll();
-recalc();
+loadConfig(function() {
+  renderAll();
+  recalc();
+});
 </script>
 </body>
 </html>
