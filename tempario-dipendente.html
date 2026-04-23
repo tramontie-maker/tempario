@@ -11,8 +11,8 @@
   --surface: #ffffff;
   --surface2: #eeebe3;
   --border: #ddd8ce;
-  --accent: #b8941f;
-  --green: #27916a;
+  --accent: #f07b28;
+  --green: #1a5fa8;
   --blue: #2471a3;
   --red: #b83232;
   --orange: #c07000;
@@ -25,7 +25,7 @@
 body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; padding-bottom: 160px; }
 
 .topbar { background: #1a1a1a; padding: 0 20px; height: 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-.logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: #e8c547; }
+.logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: #f07b28; }
 .logo sub { font-size: 10px; color: #555; font-family: 'DM Mono'; font-weight: 400; margin-left: 8px; letter-spacing: 2px; text-transform: uppercase; vertical-align: middle; }
 .badge { background: #2a2a2a; color: #777; font-size: 10px; letter-spacing: 2px; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
 
@@ -40,7 +40,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 /* CARD */
 .card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 1px 6px #00000008; transition: border-color 0.2s; }
 .card-header { padding: 13px 18px; background: var(--surface2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-.card-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); background: #b8941f18; padding: 3px 9px; border-radius: 3px; }
+.card-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); background: #f07b2818; padding: 3px 9px; border-radius: 3px; }
 .card-title { font-size: 14px; color: var(--text); font-weight: 600; }
 .card-body { padding: 18px; }
 
@@ -57,7 +57,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 .diff-btn .examples { display: block; font-size: 10px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
 .diff-btn.active-nulla { border-color: var(--blue); background: #2471a312; }
 .diff-btn.active-nulla .label { color: var(--blue); }
-.diff-btn.active-lieve { border-color: var(--green); background: #27916a12; }
+.diff-btn.active-lieve { border-color: var(--green); background: #1a5fa812; }
 .diff-btn.active-lieve .label { color: var(--green); }
 .diff-btn.active-medio { border-color: var(--orange); background: #c0700012; }
 .diff-btn.active-medio .label { color: var(--orange); }
@@ -70,7 +70,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 .seg-btn { padding: 15px 6px 13px; background: var(--surface2); border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Mono', monospace; font-size: 12px; cursor: pointer; text-align: center; transition: all 0.15s; color: var(--muted); line-height: 1.5; }
 .seg-btn .icon { display: block; font-size: 28px; margin-bottom: 5px; }
 .seg-btn .mult { display: block; font-size: 10px; color: var(--muted); margin-top: 2px; }
-.seg-btn.active { border-color: var(--accent); background: #b8941f14; color: var(--text); }
+.seg-btn.active { border-color: var(--accent); background: #f07b2814; color: var(--text); }
 .seg-btn.active .mult { color: var(--accent); font-weight: 600; }
 
 /* OP ROWS */
@@ -98,7 +98,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 .level-btn { padding: 9px 5px; border: 2px solid var(--border); border-radius: 8px; background: var(--surface2); font-family: 'DM Mono', monospace; font-size: 11px; cursor: pointer; text-align: center; color: var(--muted); transition: all 0.15s; line-height: 1.6; }
 .level-btn .lbl { display: block; font-weight: 600; font-size: 12px; }
 .level-btn .desc { display: block; font-size: 9.5px; margin-top: 3px; line-height: 1.4; }
-.level-btn.active-lieve { border-color: var(--green); background: #27916a12; color: var(--green); }
+.level-btn.active-lieve { border-color: var(--green); background: #1a5fa812; color: var(--green); }
 .level-btn.active-medio { border-color: var(--orange); background: #c0700012; color: var(--orange); }
 .level-btn.active-forte { border-color: var(--red); background: #b8323212; color: var(--red); }
 
@@ -138,20 +138,20 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
 /* ORARIO */
 .orario-card { background: #1a1a1a; border: 2px solid #333; border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
 .orario-header { padding: 13px 18px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 10px; }
-.orario-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #e8c547; background: #e8c54715; padding: 3px 9px; border-radius: 3px; }
+.orario-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f07b28; background: #f07b2815; padding: 3px 9px; border-radius: 3px; }
 .orario-title { font-size: 14px; color: #ccc; font-weight: 600; }
 .orario-body { padding: 18px; }
 .ora-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
 .ora-label { font-size: 13px; color: #666; }
-.ora-input { background: #2a2a2a; border: 2px solid #333; color: #e8c547; font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; padding: 9px 13px; border-radius: 7px; outline: none; width: 130px; transition: border-color 0.2s; }
-.ora-input:focus { border-color: #e8c547; }
+.ora-input { background: #2a2a2a; border: 2px solid #333; color: #f07b28; font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; padding: 9px 13px; border-radius: 7px; outline: none; width: 130px; transition: border-color 0.2s; }
+.ora-input:focus { border-color: #f07b28; }
 .ora-input.error { border-color: var(--error); }
 .riepilogo-box { background: #111; border-radius: 10px; padding: 15px 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 .riep-block { text-align: center; }
 .riep-val { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; line-height: 1.1; }
 .riep-val.start { color: #666; }
-.riep-val.end { color: #e8c547; }
-.riep-val.dur { color: #4fc3a1; }
+.riep-val.end { color: #f07b28; }
+.riep-val.dur { color: #1a5fa8; }
 .riep-lbl { font-size: 9px; color: #444; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
 
 /* STICKY BOTTOM */
@@ -251,7 +251,16 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
       <div class="op-section-title">Pulizia</div>
       <div id="opC_pulizia"></div>
 
+      <div class="op-section-title" style="margin-top:10px;">Lucidatura — Livello</div>
+      <div style="margin-bottom:10px;">
+        <div class="level-selector">
+          <button class="level-btn" data-luc="lieve" onclick="setLuc(this)">🟢<span class="lbl">Lieve</span><span class="desc">Pochi graffi<br>Buono stato</span></button>
+          <button class="level-btn active-medio" data-luc="media" onclick="setLuc(this)">🟡<span class="lbl">Media</span><span class="desc">Graffi visibili<br>Swirl diffusi</span></button>
+          <button class="level-btn" data-luc="forte" onclick="setLuc(this)">🔴<span class="lbl">Forte</span><span class="desc">Ossidazione<br>Graffi profondi</span></button>
+        </div>
+      </div>
       <!-- DECONTAMINAZIONE -->
+      <div class="op-section-title" style="margin-top:10px;">Decontaminazione</div>
       <div class="decontam-row">
         <div class="toggle-wrap">
           <label class="toggle"><input type="checkbox" id="decontamActive" onchange="toggleDecontam(this.checked); recalc()"><span class="slider"></span></label>
@@ -274,15 +283,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
         </div>
       </div>
 
-      <div class="op-section-title" style="margin-top:10px;">Lucidatura — Livello</div>
-      <div style="margin-bottom:10px;">
-        <div class="level-selector">
-          <button class="level-btn" data-luc="lieve" onclick="setLuc(this)">🟢<span class="lbl">Lieve</span><span class="desc">Pochi graffi<br>Buono stato</span></button>
-          <button class="level-btn active-medio" data-luc="media" onclick="setLuc(this)">🟡<span class="lbl">Media</span><span class="desc">Graffi visibili<br>Swirl diffusi</span></button>
-          <button class="level-btn" data-luc="forte" onclick="setLuc(this)">🔴<span class="lbl">Forte</span><span class="desc">Ossidazione<br>Graffi profondi</span></button>
-        </div>
-      </div>
-      <div class="op-section-title">Lucidatura — Pezzi</div>
+      <div class="op-section-title" style="margin-top:10px;">Lucidatura — Pezzi</div>
       <div id="opC_luc"></div>
       <div id="opC_tetto"></div>
 
@@ -346,12 +347,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monosp
         <span class="ritocchi-label">Numero ritocchi vernice:</span>
         <input class="ritocchi-input" id="ritocchiNum" type="number" min="0" max="999" value="0" oninput="recalc()">
       </div>
-      <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:12px;">
-        <div class="op-row" style="grid-template-columns:48px 1fr;border-bottom:none;padding:0;">
-          <div class="toggle-wrap"><label class="toggle"><input type="checkbox" id="negozioActive" onchange="toggleNegozio(this.checked); recalc()"><span class="slider"></span></label></div>
-          <span class="op-name off" id="negozioLabel">Vernice da fare</span>
-        </div>
-      </div>
+
     </div>
   </div>
 
@@ -452,7 +448,7 @@ const ALL_ROWS = [
   { cat:'A', id:'checkin',      name:'Valutazione / Check-in',             fixed:true,  dimMult:false, diffMult:false, base:20, qty:1, qtyEdit:false, defaultOn:true,  showDip:false },
   { cat:'A', id:'setup',        name:'Set-up postazione',                  fixed:true,  dimMult:false, diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:true,  showDip:false },
   { cat:'A', id:'lavaggio',     name:'Andata/Ritorno Autolavaggio',        fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:true,  showDip:true  },
-  { cat:'A', id:'negozio',      name:'Vernice da fare',                    fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:false, showDip:false },
+  { cat:'A', id:'negozio',      name:'Vernice da fare',                    fixed:true,  dimMult:false, diffMult:false, base:30, qty:1, qtyEdit:false, defaultOn:false, showDip:true  },
   // B - Interni
   { cat:'B', id:'sedile',       name:'Sedili',                             fixed:false, dimMult:true,  diffMult:true,  base:12, qty:0, qtyEdit:true,  defaultOn:true  },
   { cat:'B', id:'moquette',     name:'Tappetini e moquette',               fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
@@ -461,7 +457,7 @@ const ALL_ROWS = [
   { cat:'B', id:'pannello',     name:'Pannelli porta interni',             fixed:false, dimMult:true,  diffMult:true,  base:8,  qty:0, qtyEdit:true,  defaultOn:true  },
   { cat:'B', id:'cielo',        name:'Cielo (interno tetto)',              fixed:false, dimMult:true,  diffMult:true,  base:18, qty:1, qtyEdit:false, defaultOn:false },
   { cat:'B', id:'vetriint',     name:'Pulizia vetri interni',              fixed:false, dimMult:true,  diffMult:true,  base:10, qty:1, qtyEdit:false, defaultOn:false },
-  { cat:'B', id:'asciugatura',  name:'Asciugatura auto',                   fixed:false, dimMult:true,  diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:false },
+  { cat:'C', grp:'pulizia', id:'asciugatura', name:'Asciugatura auto',     fixed:false, dimMult:true,  diffMult:false, base:15, qty:1, qtyEdit:false, defaultOn:false },
   // C - Esterni pulizia
   { cat:'C', grp:'pulizia', id:'vetriext',     name:'Pulizia vetri esterni',          fixed:false, dimMult:true,  diffMult:true,  base:12, qty:1, qtyEdit:false, defaultOn:false },
   { cat:'C', grp:'pulizia', id:'diluente',     name:'Passaggio diluente',             fixed:false, dimMult:true,  diffMult:true,  base:20, qty:1, qtyEdit:false, defaultOn:true  },
